@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DBViewer());
+            Application.Run(new Login());
         }
     }
 }

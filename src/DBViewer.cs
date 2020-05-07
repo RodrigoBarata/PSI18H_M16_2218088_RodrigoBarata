@@ -194,5 +194,10 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
             ActivateButton(sender, RGBColors.color5);
             lblTitleChildForm.Text = "Configurações";
         }
+
+        private void panelDesketop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

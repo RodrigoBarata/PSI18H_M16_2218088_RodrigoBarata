@@ -291,6 +291,7 @@
             this.panelDesketop.Name = "panelDesketop";
             this.panelDesketop.Size = new System.Drawing.Size(793, 450);
             this.panelDesketop.TabIndex = 8;
+            this.panelDesketop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesketop_Paint);
             // 
             // pictureBox1
             // 
@@ -336,6 +337,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DBViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DBViewer";
