@@ -149,7 +149,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
+            ReleaseCapture(); 
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
