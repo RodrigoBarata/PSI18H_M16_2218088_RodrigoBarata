@@ -25,7 +25,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 56);
             panelMenu.Controls.Add(leftBorderBtn);
-            OpenChildForm(new Login());
+            
             lblTitleChildForm.Text = "Login";
 
             this.Text = string.Empty;
