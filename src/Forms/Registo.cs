@@ -7,44 +7,63 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
 
 namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 {
     public partial class Registo : Form
     {
-        MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=base_de_dados/proposta;");
-        public Registo()
+      public Registo()
         {
             InitializeComponent();
         }
 
         private void btnregistar_Click(object sender, EventArgs e)
         {
-            string sql = ("INSERT INTO utilizador(nome, username, email, password) VALUES(@nome, @username, @email, @password)");
-            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `utilizador`(`nome`, `username`, `password`, `email`) VALUES (@nome, @username, @password, @email)", db.getConnection());
+
+            command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNome.Text;
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = txtUsername.Text;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text;
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = txtEmail.Text;
+
+            db.openConnection();
+
+
+            if(command.ExecuteNonQuery() == 1)
             {
-                if (txtPassword.Text == txtpassworcheck.Text) ;
-                {
-                    conn.Open();
-                    cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 15).Value = txtNome.Text;
-                    cmd.Parameters.Add("@username", MySqlDbType.VarChar, 15).Value = txtUsername.Text;
-                    cmd.Parameters.Add("@email", MySqlDbType.VarChar, 15).Value = txtEmail.Text;
-                    cmd.Parameters.Add("@password", MySqlDbType.VarChar, 15).Value = txtPassword.Text;
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
+                MessageBox.Show("Conta Criada");
             }
-            this.Close();
-            Login Log = new Login();
-            Log.Show();
+            else
+            {
+                MessageBox.Show("Erro");
+            }
+
+            db.closeConnection();
         }
+
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             this.Close();
             Login Log = new Login();
             Log.Show();
+        }
+
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelregisto_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

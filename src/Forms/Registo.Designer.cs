@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registo));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelregisto = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
@@ -43,19 +43,20 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtpassworcheck = new System.Windows.Forms.TextBox();
             this.btnregistar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panelregisto.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelregisto
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 60);
-            this.panel1.TabIndex = 0;
+            this.panelregisto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelregisto.Controls.Add(this.iconButton1);
+            this.panelregisto.Controls.Add(this.label1);
+            this.panelregisto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelregisto.Location = new System.Drawing.Point(0, 0);
+            this.panelregisto.Name = "panelregisto";
+            this.panelregisto.Size = new System.Drawing.Size(352, 60);
+            this.panelregisto.TabIndex = 0;
+            this.panelregisto.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelregisto_MouseDown);
             // 
             // iconButton1
             // 
@@ -157,6 +158,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(203, 20);
             this.txtPassword.TabIndex = 9;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtpassworcheck
             // 
@@ -164,6 +166,7 @@
             this.txtpassworcheck.Name = "txtpassworcheck";
             this.txtpassworcheck.Size = new System.Drawing.Size(203, 20);
             this.txtpassworcheck.TabIndex = 10;
+            this.txtpassworcheck.UseSystemPasswordChar = true;
             // 
             // btnregistar
             // 
@@ -194,14 +197,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblNome);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelregisto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registo";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelregisto.ResumeLayout(false);
+            this.panelregisto.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,7 +212,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelregisto;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNome;
