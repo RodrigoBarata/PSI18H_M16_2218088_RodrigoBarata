@@ -21,30 +21,87 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void btnregistar_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `utilizador`(`nome`, `username`, `password`, `email`) VALUES (@nome, @username, @password, @email)", db.getConnection());
-
-            command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNome.Text;
-            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = txtUsername.Text;
-            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text;
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = txtEmail.Text;
-
-            db.openConnection();
-
-
-            if(command.ExecuteNonQuery() == 1)
+            if (txtPassword.Text == txtpassworcheck.Text)
             {
-                MessageBox.Show("Conta Criada");
+                DB db = new DB();
+                MySqlCommand command = new MySqlCommand("INSERT INTO `utilizador`(`nome`, `username`, `password`, `email`) VALUES (@nome, @username, @password, @email)", db.getConnection());
+
+                command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNome.Text;
+                command.Parameters.Add("@username", MySqlDbType.VarChar).Value = txtUsername.Text;
+                command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text;
+                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = txtEmail.Text;
+
+                db.openConnection();
+                if(! checkTextBoxesValues())
+
+
+                if(checkUsername())
+                {
+                    MessageBox.Show("Já existe este Username, escolha outra");
+                }
+                else
+                {
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Conta Criada");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro");
+                    }
+                }
+                
+
+                db.closeConnection();
+            }
+            else 
+            {
+                MessageBox.Show("As passwords não são iguais");
+            }        
+
+            
+        }
+
+        public Boolean checkUsername()
+        {
+            DB db = new DB();
+
+            String username = txtUsername.Text;
+            
+
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM utilizador WHERE username = @username", db.getConnection());
+
+            command.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count > 0)
+            {
+                return true;
             }
             else
             {
-                MessageBox.Show("Erro");
+                return false;
             }
-
-            db.closeConnection();
         }
 
-
+        public Boolean checkTextBoxesValues()
+        {
+            if (txtNome.Equals("") || txtEmail.Equals("") || 
+                txtUsername.Equals("") || txtPassword.Equals("") || txtpassworcheck.Equals(""))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void iconButton1_Click(object sender, EventArgs e)
         {
             this.Close();

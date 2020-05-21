@@ -41,7 +41,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             adapter.Fill(table);
             if (table.Rows.Count > 0)
             {
-                MessageBox.Show("Yes");
+                MessageBox.Show("YES");
             }
             else
             {
