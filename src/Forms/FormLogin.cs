@@ -13,12 +13,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             InitializeComponent();
         }
 
-        private void btnregistar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Registo registo = new Registo();
-            registo.ShowDialog();
-        }
+        
 
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
@@ -41,11 +36,24 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             adapter.Fill(table);
             if (table.Rows.Count > 0)
             {
-                MessageBox.Show("YES");
+                this.Hide();
+                DBViewer main = new DBViewer();
+                main.Show();
             }
             else
             {
-                MessageBox.Show("NO");
+               if(username.Trim().Equals(""))
+               {
+                    MessageBox.Show("Insere o teu nome para efetuares o Login");
+               }
+               else if(password.Trim().Equals(""))
+               {
+                    MessageBox.Show("Insere a password para efetuares os Login");
+               }
+               else
+               {
+                    MessageBox.Show("Username ou Password errados");
+               }
             }
         }
 
@@ -65,6 +73,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         private void iconButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Registar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Registo registo = new Registo();
+            registo.Show();
         }
     }
 }

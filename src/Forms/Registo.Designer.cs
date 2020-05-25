@@ -43,6 +43,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtpassworcheck = new System.Windows.Forms.TextBox();
             this.btnregistar = new System.Windows.Forms.Button();
+            this.Registar = new System.Windows.Forms.Label();
             this.panelregisto.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,11 +182,23 @@
             this.btnregistar.UseVisualStyleBackColor = false;
             this.btnregistar.Click += new System.EventHandler(this.btnregistar_Click);
             // 
+            // Registar
+            // 
+            this.Registar.AutoSize = true;
+            this.Registar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registar.Location = new System.Drawing.Point(98, 422);
+            this.Registar.Name = "Registar";
+            this.Registar.Size = new System.Drawing.Size(160, 17);
+            this.Registar.TabIndex = 13;
+            this.Registar.Text = "Já tens uma conta? Login";
+            this.Registar.Click += new System.EventHandler(this.Registar_Click);
+            // 
             // Registo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 448);
+            this.Controls.Add(this.Registar);
             this.Controls.Add(this.btnregistar);
             this.Controls.Add(this.txtpassworcheck);
             this.Controls.Add(this.txtPassword);
@@ -226,5 +239,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtpassworcheck;
         private System.Windows.Forms.Button btnregistar;
+        private System.Windows.Forms.Label Registar;
     }
 }

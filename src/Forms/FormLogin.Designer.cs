@@ -34,10 +34,10 @@
             this.txtusername = new System.Windows.Forms.TextBox();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.btnconfirmar = new System.Windows.Forms.Button();
-            this.btnregistar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.Registar = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,19 +89,6 @@
             this.btnconfirmar.UseVisualStyleBackColor = false;
             this.btnconfirmar.Click += new System.EventHandler(this.btnconfirmar_Click);
             // 
-            // btnregistar
-            // 
-            this.btnregistar.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnregistar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnregistar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnregistar.Location = new System.Drawing.Point(113, 274);
-            this.btnregistar.Name = "btnregistar";
-            this.btnregistar.Size = new System.Drawing.Size(137, 37);
-            this.btnregistar.TabIndex = 5;
-            this.btnregistar.Text = "Registar";
-            this.btnregistar.UseVisualStyleBackColor = false;
-            this.btnregistar.Click += new System.EventHandler(this.btnregistar_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -141,14 +128,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Login";
             // 
+            // Registar
+            // 
+            this.Registar.AutoSize = true;
+            this.Registar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registar.Location = new System.Drawing.Point(83, 278);
+            this.Registar.Name = "Registar";
+            this.Registar.Size = new System.Drawing.Size(200, 17);
+            this.Registar.TabIndex = 7;
+            this.Registar.Text = "Não tens uma conta? Regista-te";
+            this.Registar.Click += new System.EventHandler(this.Registar_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(368, 361);
+            this.ClientSize = new System.Drawing.Size(368, 304);
+            this.Controls.Add(this.Registar);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnregistar);
             this.Controls.Add(this.btnconfirmar);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.txtusername);
@@ -173,9 +171,9 @@
         private System.Windows.Forms.TextBox txtusername;
         private System.Windows.Forms.TextBox txtpassword;
         private System.Windows.Forms.Button btnconfirmar;
-        private System.Windows.Forms.Button btnregistar;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Registar;
     }
 }

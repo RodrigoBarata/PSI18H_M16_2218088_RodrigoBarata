@@ -21,8 +21,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void btnregistar_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text == txtpassworcheck.Text)
-            {
+            
                 DB db = new DB();
                 MySqlCommand command = new MySqlCommand("INSERT INTO `utilizador`(`nome`, `username`, `password`, `email`) VALUES (@nome, @username, @password, @email)", db.getConnection());
 
@@ -32,34 +31,38 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                 command.Parameters.Add("@email", MySqlDbType.VarChar).Value = txtEmail.Text;
 
                 db.openConnection();
+
                 if(! checkTextBoxesValues())
-
-
-                if(checkUsername())
                 {
-                    MessageBox.Show("Já existe este Username, escolha outra");
-                }
-                else
-                {
-                    if (command.ExecuteNonQuery() == 1)
+                    if(txtPassword.Text.Equals(txtpassworcheck.Text))
                     {
-                        MessageBox.Show("Conta Criada");
+                         if(checkUsername())
+                         {
+                            MessageBox.Show("Já existe este Username, escolha outra");
+                         }
+                         else
+                         {
+                            if (command.ExecuteNonQuery() == 1)
+                            {
+                                MessageBox.Show("Conta Criada");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro");
+                            }
+                         }
                     }
                     else
                     {
-                        MessageBox.Show("Erro");
+                    MessageBox.Show("As passwords não sao iguais");
                     }
+                }      
+                else
+                {
+                    MessageBox.Show("Preencha todos os campos");
                 }
-                
 
                 db.closeConnection();
-            }
-            else 
-            {
-                MessageBox.Show("As passwords não são iguais");
-            }        
-
-            
         }
 
         public Boolean checkUsername()
@@ -104,9 +107,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Login Log = new Login();
-            Log.Show();
+            Application.Exit();
         }
 
 
@@ -121,6 +122,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void Registar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login log = new Login();
+            log.Show();
         }
     }
 }
