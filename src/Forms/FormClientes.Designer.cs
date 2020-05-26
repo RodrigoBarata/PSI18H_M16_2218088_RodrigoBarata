@@ -52,12 +52,13 @@
             this.btnnovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnnovo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnnovo.ForeColor = System.Drawing.Color.Black;
-            this.btnnovo.Location = new System.Drawing.Point(434, 399);
+            this.btnnovo.Location = new System.Drawing.Point(12, 399);
             this.btnnovo.Name = "btnnovo";
             this.btnnovo.Size = new System.Drawing.Size(114, 39);
             this.btnnovo.TabIndex = 3;
             this.btnnovo.Text = "Novo";
             this.btnnovo.UseVisualStyleBackColor = false;
+            this.btnnovo.Click += new System.EventHandler(this.btnnovo_Click);
             // 
             // btneditar
             // 

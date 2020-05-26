@@ -159,6 +159,12 @@
     <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Registar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Registar_Cliente.Designer.cs">
+      <DependentUpon>Registar_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Registo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Registar_Cliente.resx">
+      <DependentUpon>Registar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registo.resx">
       <DependentUpon>Registo.cs</DependentUpon>

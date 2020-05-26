@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
 
+
 namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 {
     public partial class Registo : Form
@@ -19,6 +20,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             InitializeComponent();
         }
 
+      
         private void btnregistar_Click(object sender, EventArgs e)
         {
             
