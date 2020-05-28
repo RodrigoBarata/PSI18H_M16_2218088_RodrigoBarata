@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 
 namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
@@ -25,12 +26,12 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         {
             
                 DB db = new DB();
-                MySqlCommand command = new MySqlCommand("INSERT INTO `utilizador`(`nome`, `username`, `password`, `email`) VALUES (@nome, @username, @password, @email)", db.getConnection());
+                MySqlCommand command = new MySqlCommand("INSERT INTO `utilizador`(`nome`, `username`, `password`) VALUES (@nome, @username, @password)", db.getConnection());
 
                 command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNome.Text;
                 command.Parameters.Add("@username", MySqlDbType.VarChar).Value = txtUsername.Text;
                 command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text;
-                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = txtEmail.Text;
+                
 
                 db.openConnection();
 
@@ -97,8 +98,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         public Boolean checkTextBoxesValues()
         {
-            if (txtNome.Equals("") || txtEmail.Equals("") || 
-                txtUsername.Equals("") || txtPassword.Equals("") || txtpassworcheck.Equals(""))
+            if (txtNome.Equals("") || txtUsername.Equals("") || txtPassword.Equals("") || txtpassworcheck.Equals(""))
             {
                 return true;
             }
@@ -107,6 +107,8 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                 return false;
             }
         }
+
+      
         private void iconButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();

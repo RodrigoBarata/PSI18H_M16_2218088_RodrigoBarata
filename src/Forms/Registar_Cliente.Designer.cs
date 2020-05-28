@@ -29,25 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pc_particular = new System.Windows.Forms.RadioButton();
-            this.pc_empent = new System.Windows.Forms.RadioButton();
+            this.rbempent = new System.Windows.Forms.RadioButton();
+            this.rbparticular = new System.Windows.Forms.RadioButton();
             this.btncriar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtnome = new System.Windows.Forms.TextBox();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.txttelefone = new System.Windows.Forms.TextBox();
+            this.txtcontribuinte = new System.Windows.Forms.TextBox();
+            this.txtmorada = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +60,17 @@
             this.panel1.Size = new System.Drawing.Size(528, 79);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Cliente- Registo";
             // 
             // iconButton1
             // 
@@ -79,17 +88,6 @@
             this.iconButton1.TabIndex = 0;
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Cliente- Registo";
             // 
             // label2
             // 
@@ -129,16 +127,6 @@
             this.label5.Size = new System.Drawing.Size(0, 13);
             this.label5.TabIndex = 5;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(33, 289);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 17);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "BI/Passaporte";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -162,8 +150,8 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox1.Controls.Add(this.pc_empent);
-            this.groupBox1.Controls.Add(this.pc_particular);
+            this.groupBox1.Controls.Add(this.rbempent);
+            this.groupBox1.Controls.Add(this.rbparticular);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(285, 252);
@@ -173,27 +161,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Perfil de Cliente";
             // 
-            // pc_particular
+            // rbempent
             // 
-            this.pc_particular.AutoSize = true;
-            this.pc_particular.Location = new System.Drawing.Point(16, 31);
-            this.pc_particular.Name = "pc_particular";
-            this.pc_particular.Size = new System.Drawing.Size(87, 21);
-            this.pc_particular.TabIndex = 0;
-            this.pc_particular.TabStop = true;
-            this.pc_particular.Text = "Particular";
-            this.pc_particular.UseVisualStyleBackColor = true;
+            this.rbempent.AutoSize = true;
+            this.rbempent.Location = new System.Drawing.Point(16, 54);
+            this.rbempent.Name = "rbempent";
+            this.rbempent.Size = new System.Drawing.Size(145, 21);
+            this.rbempent.TabIndex = 1;
+            this.rbempent.TabStop = true;
+            this.rbempent.Text = "Empresa/Entidade";
+            this.rbempent.UseVisualStyleBackColor = true;
+            this.rbempent.CheckedChanged += new System.EventHandler(this.rbempent_CheckedChanged);
             // 
-            // pc_empent
+            // rbparticular
             // 
-            this.pc_empent.AutoSize = true;
-            this.pc_empent.Location = new System.Drawing.Point(16, 54);
-            this.pc_empent.Name = "pc_empent";
-            this.pc_empent.Size = new System.Drawing.Size(145, 21);
-            this.pc_empent.TabIndex = 1;
-            this.pc_empent.TabStop = true;
-            this.pc_empent.Text = "Empresa/Entidade";
-            this.pc_empent.UseVisualStyleBackColor = true;
+            this.rbparticular.AutoSize = true;
+            this.rbparticular.Checked = true;
+            this.rbparticular.Location = new System.Drawing.Point(16, 31);
+            this.rbparticular.Name = "rbparticular";
+            this.rbparticular.Size = new System.Drawing.Size(87, 21);
+            this.rbparticular.TabIndex = 0;
+            this.rbparticular.TabStop = true;
+            this.rbparticular.Text = "Particular";
+            this.rbparticular.UseVisualStyleBackColor = true;
+            this.rbparticular.CheckedChanged += new System.EventHandler(this.rbparticular_CheckedChanged);
             // 
             // btncriar
             // 
@@ -206,65 +197,57 @@
             this.btncriar.TabIndex = 11;
             this.btncriar.Text = "Criar";
             this.btncriar.UseVisualStyleBackColor = false;
+            this.btncriar.Click += new System.EventHandler(this.btncriar_Click);
             // 
-            // textBox1
+            // txtnome
             // 
-            this.textBox1.Location = new System.Drawing.Point(33, 148);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtnome.Location = new System.Drawing.Point(33, 148);
+            this.txtnome.Name = "txtnome";
+            this.txtnome.Size = new System.Drawing.Size(197, 20);
+            this.txtnome.TabIndex = 12;
             // 
-            // textBox2
+            // txtemail
             // 
-            this.textBox2.Location = new System.Drawing.Point(33, 200);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 20);
-            this.textBox2.TabIndex = 13;
+            this.txtemail.Location = new System.Drawing.Point(33, 200);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(197, 20);
+            this.txtemail.TabIndex = 13;
             // 
-            // textBox3
+            // txttelefone
             // 
-            this.textBox3.Location = new System.Drawing.Point(33, 252);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(197, 20);
-            this.textBox3.TabIndex = 14;
+            this.txttelefone.Location = new System.Drawing.Point(33, 252);
+            this.txttelefone.Name = "txttelefone";
+            this.txttelefone.Size = new System.Drawing.Size(197, 20);
+            this.txttelefone.TabIndex = 14;
             // 
-            // textBox4
+            // txtcontribuinte
             // 
-            this.textBox4.Location = new System.Drawing.Point(33, 308);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(197, 20);
-            this.textBox4.TabIndex = 15;
+            this.txtcontribuinte.Location = new System.Drawing.Point(285, 148);
+            this.txtcontribuinte.Name = "txtcontribuinte";
+            this.txtcontribuinte.Size = new System.Drawing.Size(197, 20);
+            this.txtcontribuinte.TabIndex = 16;
             // 
-            // textBox5
+            // txtmorada
             // 
-            this.textBox5.Location = new System.Drawing.Point(285, 148);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(197, 20);
-            this.textBox5.TabIndex = 16;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(285, 200);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(197, 20);
-            this.textBox6.TabIndex = 17;
+            this.txtmorada.Location = new System.Drawing.Point(285, 200);
+            this.txtmorada.Name = "txtmorada";
+            this.txtmorada.Size = new System.Drawing.Size(197, 20);
+            this.txtmorada.TabIndex = 17;
             // 
             // Registar_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 450);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtmorada);
+            this.Controls.Add(this.txtcontribuinte);
+            this.Controls.Add(this.txttelefone);
+            this.Controls.Add(this.txtemail);
+            this.Controls.Add(this.txtnome);
             this.Controls.Add(this.btncriar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -292,18 +275,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton pc_empent;
-        private System.Windows.Forms.RadioButton pc_particular;
+        private System.Windows.Forms.RadioButton rbempent;
+        private System.Windows.Forms.RadioButton rbparticular;
         private System.Windows.Forms.Button btncriar;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtnome;
+        private System.Windows.Forms.TextBox txtemail;
+        private System.Windows.Forms.TextBox txttelefone;
+        private System.Windows.Forms.TextBox txtcontribuinte;
+        private System.Windows.Forms.TextBox txtmorada;
     }
 }

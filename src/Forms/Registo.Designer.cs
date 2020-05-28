@@ -36,10 +36,8 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtpassworcheck = new System.Windows.Forms.TextBox();
             this.btnregistar = new System.Windows.Forms.Button();
@@ -108,7 +106,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(73, 269);
+            this.label4.Location = new System.Drawing.Point(73, 219);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 3;
@@ -117,20 +115,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(73, 317);
+            this.label5.Location = new System.Drawing.Point(73, 271);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "ConfirmarPassword";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(73, 220);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
-            this.lblEmail.TabIndex = 5;
-            this.lblEmail.Text = "Email:";
             // 
             // txtNome
             // 
@@ -146,16 +135,9 @@
             this.txtUsername.Size = new System.Drawing.Size(203, 20);
             this.txtUsername.TabIndex = 7;
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(76, 236);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(203, 20);
-            this.txtEmail.TabIndex = 8;
-            // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(76, 285);
+            this.txtPassword.Location = new System.Drawing.Point(76, 235);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(203, 20);
             this.txtPassword.TabIndex = 9;
@@ -163,7 +145,7 @@
             // 
             // txtpassworcheck
             // 
-            this.txtpassworcheck.Location = new System.Drawing.Point(76, 333);
+            this.txtpassworcheck.Location = new System.Drawing.Point(76, 287);
             this.txtpassworcheck.Name = "txtpassworcheck";
             this.txtpassworcheck.Size = new System.Drawing.Size(203, 20);
             this.txtpassworcheck.TabIndex = 10;
@@ -174,7 +156,7 @@
             this.btnregistar.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnregistar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnregistar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnregistar.Location = new System.Drawing.Point(76, 368);
+            this.btnregistar.Location = new System.Drawing.Point(76, 313);
             this.btnregistar.Name = "btnregistar";
             this.btnregistar.Size = new System.Drawing.Size(191, 37);
             this.btnregistar.TabIndex = 12;
@@ -186,7 +168,7 @@
             // 
             this.Registar.AutoSize = true;
             this.Registar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Registar.Location = new System.Drawing.Point(98, 422);
+            this.Registar.Location = new System.Drawing.Point(107, 362);
             this.Registar.Name = "Registar";
             this.Registar.Size = new System.Drawing.Size(160, 17);
             this.Registar.TabIndex = 13;
@@ -202,10 +184,8 @@
             this.Controls.Add(this.btnregistar);
             this.Controls.Add(this.txtpassworcheck);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUserName);
@@ -232,10 +212,8 @@
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtpassworcheck;
         private System.Windows.Forms.Button btnregistar;

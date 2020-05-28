@@ -23,5 +23,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             Registar_Cliente rc = new Registar_Cliente();
             rc.Show();
         }
+
+       
     }
 }
