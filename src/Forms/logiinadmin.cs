@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 {
-    public partial class login_admin : UserControl
+    public partial class logiinadmin : Form
     {
-        public login_admin()
+        public logiinadmin()
         {
             InitializeComponent();
+            confi1.Hide();
         }
 
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
-            if(txtuser.Text.Equals("Admin") || txtpass.Text.Equals("Admin"))
+            if (txtpass.Text.Equals("Admin") || txtuser.Text.Equals("Admin"))
             {
-                this.Hide();
-              
+                
+                confi1.Show();
             }
         }
     }

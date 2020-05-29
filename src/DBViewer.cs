@@ -25,7 +25,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 56);
             panelMenu.Controls.Add(leftBorderBtn);
-            login_admin1.Hide();
+            
 
             
             
@@ -195,8 +195,8 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
         private void btnconfig_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
-            login_admin1.Show();
-            
+            OpenChildForm(new logiinadmin());
+
             lblTitleChildForm.Text = "Configurações";
         }
     }

@@ -32,12 +32,21 @@
             this.btnusers = new System.Windows.Forms.Button();
             this.btnsubarea = new System.Windows.Forms.Button();
             this.btnarea = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnusers);
             this.panel1.Controls.Add(this.btnsubarea);
             this.panel1.Controls.Add(this.btnarea);
@@ -85,17 +94,57 @@
             this.btnarea.TabIndex = 0;
             this.btnarea.Text = "Áreas";
             this.btnarea.UseVisualStyleBackColor = true;
-            this.btnarea.Click += new System.EventHandler(this.btnarea_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(-3, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(18, 492);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Location = new System.Drawing.Point(14, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(126, 19);
+            this.panel3.TabIndex = 4;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Location = new System.Drawing.Point(0, 478);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(140, 11);
+            this.panel4.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(0, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(13, 486);
+            this.panel5.TabIndex = 6;
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(140, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(676, 489);
+            this.panel6.TabIndex = 2;
             // 
             // confi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel1);
             this.Name = "confi";
             this.Size = new System.Drawing.Size(816, 489);
-            this.Load += new System.EventHandler(this.confi_Load);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -106,5 +155,10 @@
         private System.Windows.Forms.Button btnusers;
         private System.Windows.Forms.Button btnsubarea;
         private System.Windows.Forms.Button btnarea;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
