@@ -129,6 +129,12 @@
     <Compile Include="DBViewer.Designer.cs">
       <DependentUpon>DBViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\confi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\confi.Designer.cs">
+      <DependentUpon>confi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
     <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\login_admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\login_admin.Designer.cs">
+      <DependentUpon>login_admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Registar_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,9 @@
     <EmbeddedResource Include="DBViewer.resx">
       <DependentUpon>DBViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\confi.resx">
+      <DependentUpon>confi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\login_admin.resx">
+      <DependentUpon>login_admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registar_Cliente.resx">
       <DependentUpon>Registar_Cliente.cs</DependentUpon>

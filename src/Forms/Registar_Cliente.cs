@@ -39,17 +39,21 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         private void rbparticular_CheckedChanged(object sender, EventArgs e)
         {
             perfil_cliente = "Particular";
+            lbltest.Text = perfil_cliente;
+            lbltest.Hide();
         }
 
         private void rbempent_CheckedChanged(object sender, EventArgs e)
         {
             perfil_cliente = "Empresa/Entidade";
+            lbltest.Text = perfil_cliente;
+            lbltest.Hide();
         }
         private void btncriar_Click(object sender, EventArgs e)
         {
             
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO cliente(nome, morada, contribuinte,  n_telefone, perfil_de_cliente) VALUES (@nome, @morada, @contri, @telefone, @pfcliente)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO cliente (nome, morada, contribuinte,  n_telefone, perfil_de_cliente) VALUES (@nome, @morada, @contri, @telefone, @pfcliente)", db.getConnection());
 
             
             
@@ -57,7 +61,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             command.Parameters.Add("@morada", MySqlDbType.VarChar).Value = txtmorada.Text;
             command.Parameters.Add("@contri", MySqlDbType.VarChar).Value = txtcontribuinte.Text;
             command.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = txttelefone.Text;
-            //command.Parameters.Add("pfcliente", MySqlDbType.VarChar).Value = perfil_cliente.;            
+            command.Parameters.Add("pfcliente", MySqlDbType.VarChar).Value = lbltest.Text;            
 
             db.openConnection();
 

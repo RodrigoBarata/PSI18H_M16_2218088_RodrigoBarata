@@ -46,6 +46,7 @@
             this.txttelefone = new System.Windows.Forms.TextBox();
             this.txtcontribuinte = new System.Windows.Forms.TextBox();
             this.txtmorada = new System.Windows.Forms.TextBox();
+            this.lbltest = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -150,6 +151,7 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.lbltest);
             this.groupBox1.Controls.Add(this.rbempent);
             this.groupBox1.Controls.Add(this.rbparticular);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -168,7 +170,6 @@
             this.rbempent.Name = "rbempent";
             this.rbempent.Size = new System.Drawing.Size(145, 21);
             this.rbempent.TabIndex = 1;
-            this.rbempent.TabStop = true;
             this.rbempent.Text = "Empresa/Entidade";
             this.rbempent.UseVisualStyleBackColor = true;
             this.rbempent.CheckedChanged += new System.EventHandler(this.rbempent_CheckedChanged);
@@ -234,6 +235,14 @@
             this.txtmorada.Size = new System.Drawing.Size(197, 20);
             this.txtmorada.TabIndex = 17;
             // 
+            // lbltest
+            // 
+            this.lbltest.AutoSize = true;
+            this.lbltest.Location = new System.Drawing.Point(103, 39);
+            this.lbltest.Name = "lbltest";
+            this.lbltest.Size = new System.Drawing.Size(0, 17);
+            this.lbltest.TabIndex = 18;
+            // 
             // Registar_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +295,6 @@
         private System.Windows.Forms.TextBox txttelefone;
         private System.Windows.Forms.TextBox txtcontribuinte;
         private System.Windows.Forms.TextBox txtmorada;
+        private System.Windows.Forms.Label lbltest;
     }
 }

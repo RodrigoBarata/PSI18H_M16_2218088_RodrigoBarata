@@ -48,6 +48,7 @@
             this.date = new System.Windows.Forms.Label();
             this.time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.login_admin1 = new PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.login_admin();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panel2.SuspendLayout();
@@ -284,6 +285,7 @@
             // 
             // panelDesketop
             // 
+            this.panelDesketop.Controls.Add(this.login_admin1);
             this.panelDesketop.Controls.Add(this.pictureBox1);
             this.panelDesketop.Controls.Add(this.date);
             this.panelDesketop.Controls.Add(this.time);
@@ -291,7 +293,6 @@
             this.panelDesketop.Name = "panelDesketop";
             this.panelDesketop.Size = new System.Drawing.Size(793, 450);
             this.panelDesketop.TabIndex = 8;
-            this.panelDesketop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesketop_Paint);
             // 
             // pictureBox1
             // 
@@ -327,6 +328,13 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // login_admin1
+            // 
+            this.login_admin1.Location = new System.Drawing.Point(0, 0);
+            this.login_admin1.Name = "login_admin1";
+            this.login_admin1.Size = new System.Drawing.Size(793, 450);
+            this.login_admin1.TabIndex = 2;
             // 
             // DBViewer
             // 
@@ -374,6 +382,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton btnconfig;
+        private Forms.login_admin login_admin1;
     }
 }
 
