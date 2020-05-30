@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
+namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_configuracoes.Área
 {
-    public partial class confi : UserControl
+    public partial class consultar_areas : Form
     {
-        public confi()
+        public consultar_areas()
         {
             InitializeComponent();
         }
-
-       
-
-        
     }
 }

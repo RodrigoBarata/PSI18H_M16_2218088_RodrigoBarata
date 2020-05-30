@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnconfirmar = new System.Windows.Forms.Button();
@@ -36,19 +38,50 @@
             this.txtuser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.confi1 = new PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.confi();
+            this.panel_config = new System.Windows.Forms.Panel();
+            this.panel_config_desk = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel_config.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(324, 61);
             this.panel2.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(324, 61);
+            this.panel4.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(23, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 22);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Administrador";
             // 
             // label3
             // 
@@ -94,6 +127,7 @@
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(235, 20);
             this.txtpass.TabIndex = 4;
+            this.txtpass.UseSystemPasswordChar = true;
             // 
             // txtuser
             // 
@@ -124,26 +158,102 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "User";
             // 
-            // confi1
+            // panel_config
             // 
-            this.confi1.Location = new System.Drawing.Point(-2, 1);
-            this.confi1.Name = "confi1";
-            this.confi1.Size = new System.Drawing.Size(804, 448);
-            this.confi1.TabIndex = 3;
+            this.panel_config.Controls.Add(this.panel_config_desk);
+            this.panel_config.Controls.Add(this.panel5);
+            this.panel_config.Location = new System.Drawing.Point(1, 1);
+            this.panel_config.Name = "panel_config";
+            this.panel_config.Size = new System.Drawing.Size(799, 448);
+            this.panel_config.TabIndex = 3;
+            // 
+            // panel_config_desk
+            // 
+            this.panel_config_desk.BackColor = System.Drawing.Color.White;
+            this.panel_config_desk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_config_desk.Location = new System.Drawing.Point(200, 0);
+            this.panel_config_desk.Name = "panel_config_desk";
+            this.panel_config_desk.Size = new System.Drawing.Size(599, 448);
+            this.panel_config_desk.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 448);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel8.Controls.Add(this.button3);
+            this.panel8.Controls.Add(this.button2);
+            this.panel8.Controls.Add(this.button1);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(200, 448);
+            this.panel8.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(3, 235);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(197, 39);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Utlizadores";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(3, 194);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(197, 39);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Subáreas";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 153);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 39);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Áreas";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // logiinadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.confi1);
+            this.Controls.Add(this.panel_config);
             this.Controls.Add(this.panel1);
             this.Name = "logiinadmin";
             this.Text = "logiinadmin";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel_config.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -158,6 +268,14 @@
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private confi confi1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;        
+        private System.Windows.Forms.Panel panel_config;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel_config_desk;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

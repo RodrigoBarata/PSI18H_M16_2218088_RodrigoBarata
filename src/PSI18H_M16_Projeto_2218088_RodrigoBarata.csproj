@@ -129,58 +129,64 @@
     <Compile Include="DBViewer.Designer.cs">
       <DependentUpon>DBViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\confi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\confi.Designer.cs">
-      <DependentUpon>confi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormClientes.cs">
+    <Compile Include="Forms\Forms_principais\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormClientes.Designer.cs">
+    <Compile Include="Forms\Forms_principais\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormCursos.cs">
+    <Compile Include="Forms\Forms_principais\FormCursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormCursos.Designer.cs">
+    <Compile Include="Forms\Forms_principais\FormCursos.Designer.cs">
       <DependentUpon>FormCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormFormacao.cs">
+    <Compile Include="Forms\Forms_principais\FormFormacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormFormacao.Designer.cs">
+    <Compile Include="Forms\Forms_principais\FormFormacao.Designer.cs">
       <DependentUpon>FormFormacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormFormadores.cs">
+    <Compile Include="Forms\Forms_principais\FormFormadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormFormadores.Designer.cs">
+    <Compile Include="Forms\Forms_principais\FormFormadores.Designer.cs">
       <DependentUpon>FormFormadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormLogin.cs">
+    <Compile Include="Forms\Forms_iniciais\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormLogin.Designer.cs">
+    <Compile Include="Forms\Forms_iniciais\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\logiinadmin.cs">
+    <Compile Include="Forms\Forms_principais\Form_configuracoes\logiinadmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\logiinadmin.Designer.cs">
+    <Compile Include="Forms\Forms_principais\Form_configuracoes\logiinadmin.Designer.cs">
       <DependentUpon>logiinadmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Registar_Cliente.cs">
+    <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\area_novo_editar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Registar_Cliente.Designer.cs">
+    <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\area_novo_editar.Designer.cs">
+      <DependentUpon>area_novo_editar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\consultar_areas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\consultar_areas.Designer.cs">
+      <DependentUpon>consultar_areas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forms_principais\Registar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms_principais\Registar_Cliente.Designer.cs">
       <DependentUpon>Registar_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Registo.cs">
+    <Compile Include="Forms\Forms_iniciais\Registo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Registo.Designer.cs">
+    <Compile Include="Forms\Forms_iniciais\Registo.Designer.cs">
       <DependentUpon>Registo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -188,31 +194,34 @@
     <EmbeddedResource Include="DBViewer.resx">
       <DependentUpon>DBViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\confi.resx">
-      <DependentUpon>confi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormClientes.resx">
+    <EmbeddedResource Include="Forms\Forms_principais\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormCursos.resx">
+    <EmbeddedResource Include="Forms\Forms_principais\FormCursos.resx">
       <DependentUpon>FormCursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormFormacao.resx">
+    <EmbeddedResource Include="Forms\Forms_principais\FormFormacao.resx">
       <DependentUpon>FormFormacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormFormadores.resx">
+    <EmbeddedResource Include="Forms\Forms_principais\FormFormadores.resx">
       <DependentUpon>FormFormadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormLogin.resx">
+    <EmbeddedResource Include="Forms\Forms_iniciais\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\logiinadmin.resx">
+    <EmbeddedResource Include="Forms\Forms_principais\Form_configuracoes\logiinadmin.resx">
       <DependentUpon>logiinadmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registar_Cliente.resx">
+    <EmbeddedResource Include="Forms\Forms_principais\Form_configuracoes\Área\area_novo_editar.resx">
+      <DependentUpon>area_novo_editar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms_principais\Form_configuracoes\Área\consultar_areas.resx">
+      <DependentUpon>consultar_areas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms_principais\Registar_Cliente.resx">
       <DependentUpon>Registar_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registo.resx">
+    <EmbeddedResource Include="Forms\Forms_iniciais\Registo.resx">
       <DependentUpon>Registo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
