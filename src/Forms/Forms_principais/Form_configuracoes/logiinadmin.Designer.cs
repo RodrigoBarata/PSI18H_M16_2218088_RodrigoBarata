@@ -103,7 +103,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(220, 62);
+            this.panel1.Location = new System.Drawing.Point(294, 62);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(330, 300);
             this.panel1.TabIndex = 2;
@@ -162,9 +162,10 @@
             // 
             this.panel_config.Controls.Add(this.panel_config_desk);
             this.panel_config.Controls.Add(this.panel5);
-            this.panel_config.Location = new System.Drawing.Point(1, 1);
+            this.panel_config.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_config.Location = new System.Drawing.Point(0, 0);
             this.panel_config.Name = "panel_config";
-            this.panel_config.Size = new System.Drawing.Size(799, 448);
+            this.panel_config.Size = new System.Drawing.Size(984, 450);
             this.panel_config.TabIndex = 3;
             // 
             // panel_config_desk
@@ -173,7 +174,7 @@
             this.panel_config_desk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_config_desk.Location = new System.Drawing.Point(200, 0);
             this.panel_config_desk.Name = "panel_config_desk";
-            this.panel_config_desk.Size = new System.Drawing.Size(599, 448);
+            this.panel_config_desk.Size = new System.Drawing.Size(784, 450);
             this.panel_config_desk.TabIndex = 1;
             // 
             // panel5
@@ -182,7 +183,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 448);
+            this.panel5.Size = new System.Drawing.Size(200, 450);
             this.panel5.TabIndex = 0;
             // 
             // panel8
@@ -240,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(984, 450);
             this.Controls.Add(this.panel_config);
             this.Controls.Add(this.panel1);
             this.Name = "logiinadmin";

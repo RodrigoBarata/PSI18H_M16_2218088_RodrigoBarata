@@ -68,7 +68,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(193, 515);
+            this.panelMenu.Size = new System.Drawing.Size(193, 514);
             this.panelMenu.TabIndex = 0;
             // 
             // btnconfig
@@ -208,7 +208,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(193, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(793, 68);
+            this.panel2.Size = new System.Drawing.Size(964, 68);
             this.panel2.TabIndex = 0;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
@@ -220,7 +220,7 @@
             this.btnminimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.btnminimize.IconColor = System.Drawing.Color.White;
             this.btnminimize.IconSize = 30;
-            this.btnminimize.Location = new System.Drawing.Point(694, 12);
+            this.btnminimize.Location = new System.Drawing.Point(865, 12);
             this.btnminimize.Name = "btnminimize";
             this.btnminimize.Rotation = 0D;
             this.btnminimize.Size = new System.Drawing.Size(25, 23);
@@ -236,7 +236,7 @@
             this.btnmaxime.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
             this.btnmaxime.IconColor = System.Drawing.Color.White;
             this.btnmaxime.IconSize = 30;
-            this.btnmaxime.Location = new System.Drawing.Point(725, 12);
+            this.btnmaxime.Location = new System.Drawing.Point(896, 12);
             this.btnmaxime.Name = "btnmaxime";
             this.btnmaxime.Rotation = 0D;
             this.btnmaxime.Size = new System.Drawing.Size(25, 23);
@@ -252,7 +252,7 @@
             this.btnshutdown.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.btnshutdown.IconColor = System.Drawing.Color.White;
             this.btnshutdown.IconSize = 30;
-            this.btnshutdown.Location = new System.Drawing.Point(756, 12);
+            this.btnshutdown.Location = new System.Drawing.Point(927, 12);
             this.btnshutdown.Name = "btnshutdown";
             this.btnshutdown.Rotation = 0D;
             this.btnshutdown.Size = new System.Drawing.Size(25, 23);
@@ -287,16 +287,17 @@
             this.panelDesketop.Controls.Add(this.pictureBox1);
             this.panelDesketop.Controls.Add(this.date);
             this.panelDesketop.Controls.Add(this.time);
-            this.panelDesketop.Location = new System.Drawing.Point(193, 65);
+            this.panelDesketop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesketop.Location = new System.Drawing.Point(193, 68);
             this.panelDesketop.Name = "panelDesketop";
-            this.panelDesketop.Size = new System.Drawing.Size(793, 450);
+            this.panelDesketop.Size = new System.Drawing.Size(964, 446);
             this.panelDesketop.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(291, 81);
+            this.pictureBox1.Location = new System.Drawing.Point(416, 106);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 117);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -307,7 +308,7 @@
             // 
             this.date.AutoSize = true;
             this.date.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(303, 229);
+            this.date.Location = new System.Drawing.Point(428, 254);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(57, 21);
             this.date.TabIndex = 1;
@@ -317,7 +318,7 @@
             // 
             this.time.AutoSize = true;
             this.time.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time.Location = new System.Drawing.Point(340, 205);
+            this.time.Location = new System.Drawing.Point(465, 230);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(74, 24);
             this.time.TabIndex = 0;
@@ -331,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 515);
+            this.ClientSize = new System.Drawing.Size(1157, 514);
             this.Controls.Add(this.panelDesketop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);

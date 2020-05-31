@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using MySql.Data.MySqlClient;
-using System.Text.RegularExpressions;
+
 
 
 namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms

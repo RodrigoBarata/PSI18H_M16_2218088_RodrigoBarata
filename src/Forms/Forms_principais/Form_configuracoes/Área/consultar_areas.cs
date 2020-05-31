@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,19 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 {
     public partial class consultar_areas : Form
     {
+       
         public consultar_areas()
         {
             InitializeComponent();
+            
+            
         }
+
+        private void btnnovo_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
+
     }
 }
