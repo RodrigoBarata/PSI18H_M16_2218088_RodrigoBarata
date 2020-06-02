@@ -165,12 +165,6 @@
     <Compile Include="Forms\Forms_principais\Form_configuracoes\logiinadmin.Designer.cs">
       <DependentUpon>logiinadmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\area_novo_editar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\area_novo_editar.Designer.cs">
-      <DependentUpon>area_novo_editar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Forms_principais\Form_configuracoes\Área\consultar_areas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,9 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Forms_principais\Form_configuracoes\logiinadmin.resx">
       <DependentUpon>logiinadmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Forms_principais\Form_configuracoes\Área\area_novo_editar.resx">
-      <DependentUpon>area_novo_editar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Forms_principais\Form_configuracoes\Área\consultar_areas.resx">
       <DependentUpon>consultar_areas.cs</DependentUpon>
