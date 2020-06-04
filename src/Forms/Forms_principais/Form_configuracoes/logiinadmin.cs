@@ -24,9 +24,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
-            if(txtuser.Text.Equals("Admin") || txtpass.Text.Equals("Admin"))
+            if(txtuser.Text.Equals("Admin") && txtpass.Text.Equals("Admin"))
             {
                 panel_config.Show();
+            }
+            else
+            {
+                MessageBox.Show("User e Password errados");
             }
         }
         private void OpenChildForm(Form childForm)

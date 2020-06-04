@@ -14,78 +14,31 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 {
     public partial class consultar_areas : Form
     {
-        
+        DB db = new DB();
+        MySqlCommand command;
+
         DataTable dt = new DataTable();
-        string strSQL;
+        
         public consultar_areas()
         {
             InitializeComponent();
-            DataGridView();
-
-
+            
 
         }
-
-        private void btnnovo_Click(object sender, EventArgs e)
-        {
-            DB db = new DB();
-            try
-            {
-                
-                MySqlCommand command = new MySqlCommand("INSERT INTO `area`(`nome_area`) VALUES (@nome)", db.getConnection());
-
-                command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtarea.Text;
-                
-
-                db.openConnection();
-
-                if (!checkTextBoxesValues())
-                {
-                    if (checkUsername())
-                    {
-                        MessageBox.Show("Já existe esta Área, escolha outra");
-                    }
-                    else
-                    {
-                        if (command.ExecuteNonQuery() == 1)
-                        {
-                            MessageBox.Show("Conta Criada");
-                            
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro");
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Preencha todos os campos");
-                }
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                db.closeConnection();
-
-            }
-        }
+        
+       
         public Boolean checkTextBoxesValues()
         {
-            if (txtarea.Equals("") )
-            {
-                return true;
-            }
-            else
+            if (txtarea.Text.Equals("") )
             {
                 return false;
             }
+            else
+            {
+                return true;
+            }
         }
-        public Boolean checkUsername()
+        public Boolean checkArea()
         {
             DB db = new DB();
 
@@ -112,76 +65,39 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return false;
             }
         }
-
-        private void DataGridView()
+        
+        public void dataview()
         {
-            DB db = new DB();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand cmd;
-
-            strSQL = "SELECT * FROM area ";
-            cmd = new MySqlCommand(strSQL, db.getConnection());
-            adapter.SelectCommand = cmd;
-
-            adapter.Fill(dt);
-
-            dtareas.DataSource = dt;
-
-            
-
+            string selectQuery = "SELECT * FROM area";
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, db.connection);
+            adapter.Fill(table);
+            dtareas.DataSource = table;
         }
-      
 
-        private void txtconsultararea_TextChanged(object sender, EventArgs e)
-        {
-            DataView dv = new DataView(dt);
-            dv.RowFilter = string.Format("nome_area LIKE '%{0}%'", txtconsultararea.Text);
 
-            dtareas.DataSource = dv;
-        }
 
         private void dtareas_MouseClick(object sender, MouseEventArgs e)
         {
-            txtarea.Text = dtareas.CurrentRow.Cells[0].Value.ToString();
+            txtid.Text = dtareas.CurrentRow.Cells[0].Value.ToString();
+            txtarea.Text = dtareas.CurrentRow.Cells[1].Value.ToString();
         }
 
-        private void btneditar_Click(object sender, EventArgs e)
+        public void executeMyQuery(string query)
         {
-             DB db = new DB();
             try
             {
-                
-                MySqlCommand command = new MySqlCommand("INSERT INTO `area`(`nome_area`) VALUES (@nome)", db.getConnection());
-
-                command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtarea.Text;
-                
-
                 db.openConnection();
+                command = new MySqlCommand(query, db.connection);
 
-                if (!checkTextBoxesValues())
+                if(command.ExecuteNonQuery() == 1)
                 {
-                    if (checkUsername())
-                    {
-                        MessageBox.Show("Já existe esta Área, escolha outra");
-                    }
-                    else
-                    {
-                        if (command.ExecuteNonQuery() == 1)
-                        {
-                            MessageBox.Show("Conta Criada");
-                            
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro");
-                        }
-                    }
+                    MessageBox.Show("Ação Executada");
                 }
                 else
                 {
-                    MessageBox.Show("Preencha todos os campos");
+                    MessageBox.Show("Ação não Executada");
                 }
-
             }
             catch(Exception ex)
             {
@@ -190,8 +106,97 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             finally
             {
                 db.closeConnection();
-
             }
+
+
+        }
+
+        private void btnnovo_Click(object sender, EventArgs e)
+        {
+            string insertQuery = "INSERT INTO area(nome_area) VALUES('" + txtarea.Text + "')";
+            if (checkTextBoxesValues())
+            {
+                if (checkArea())
+                {
+                    MessageBox.Show("Já existe esta Área, escolha outra");
+                }
+                else
+                {
+                    executeMyQuery(insertQuery);
+                    dataview();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
+            }
+            
+        }
+
+        private void consultar_areas_Load(object sender, EventArgs e)
+        {
+            dataview();
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            
+            if ( checkTextBoxesValues())
+            {
+                if (checkArea())
+                {
+                    MessageBox.Show("Já existe esta Área, escolha outra");
+                }
+                else
+                {
+                    string updateQuery = "UPDATE area SET nome_area = '" + txtarea.Text + "' WHERE idarea =" + int.Parse(txtid.Text);
+                    executeMyQuery(updateQuery);
+                    dataview();
+                }
+
+                
+                
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
+            }
+            
+                
+        }
+
+        private void btnremover_Click(object sender, EventArgs e)
+        {
+            if (checkTextBoxesValues())
+            {
+                string deleteQuery = "DELETE FROM area WHERE idarea = " + int.Parse(txtid.Text);
+            executeMyQuery(deleteQuery);
+            dataview();
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
+            }
+        }
+
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            MySqlDataReader mdr;
+            string select = "SELECT * FROM area WHERE idarea = " + txtconsultararea.Text;
+            command = new MySqlCommand(select, db.connection);
+            db.openConnection();
+            mdr = command.ExecuteReader();
+            
+            if(mdr.Read())
+            {
+                
+                txtarea.Text = mdr.GetString("nome_area");
+            }
+            else
+            {
+                MessageBox.Show("Área não encontrada");
+            }
+            db.closeConnection();
         }
     }
 }

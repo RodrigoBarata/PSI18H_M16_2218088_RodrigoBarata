@@ -9,7 +9,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
 {
     class DB
     {
-         private MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=base_de_dados/proposta;");
+         public MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=;database=base_de_dados/proposta;");
 
         public void openConnection()
         {
