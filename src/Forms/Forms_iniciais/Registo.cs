@@ -30,7 +30,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
                 command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNome.Text;
                 command.Parameters.Add("@username", MySqlDbType.VarChar).Value = txtUsername.Text;
-                command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text;
+                command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text.Trim();
                 
 
                 db.openConnection();
@@ -48,6 +48,9 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                             if (command.ExecuteNonQuery() == 1)
                             {
                                 MessageBox.Show("Conta Criada");
+                            this.Hide();
+                            Login log = new Login();
+                            log.Show();
                             }
                             else
                             {

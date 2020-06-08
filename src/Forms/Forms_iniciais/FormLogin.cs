@@ -29,7 +29,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             MySqlCommand command = new MySqlCommand("SELECT * FROM utilizador WHERE username = @username and password = @password", db.getConnection());
 
             command.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
-            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+            command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Trim();
 
             adapter.SelectCommand = command;
 
