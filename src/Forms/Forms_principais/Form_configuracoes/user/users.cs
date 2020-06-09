@@ -37,7 +37,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         }
         public Boolean checkTextBoxesValues()
         {
-            if (txtuser.Text.Equals("") || txtuser.Text.Equals(""))
+            if (txtuser.Text.Equals("") || txtnome.Text.Equals(""))
             {
                 return false;
             }
@@ -49,10 +49,11 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            string updateQuery = "UPDATE `utilizador` SET `nome`='" + txtnome.Text + "',`username`='" + txtuser.Text + "' WHERE idutilizador =" + int.Parse(txtid.Text);
-            using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
-            {
-                if (checkTextBoxesValues())
+            
+            if (checkTextBoxesValues())
+                {
+                string updateQuery = "UPDATE `utilizador` SET `nome`='" + txtnome.Text + "',`username`='" + txtuser.Text + "' WHERE idutilizador =" + int.Parse(txtid.Text);
+                using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
                 {
                     try
                     {
@@ -72,11 +73,12 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                         db.closeConnection();
                     }
                 }
+                }
                 else
                 {
                     MessageBox.Show("Preencha os campos");
                 }
-            }
+            
         }
 
         private void btnremover_Click(object sender, EventArgs e)
@@ -111,5 +113,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 MessageBox.Show("Preencha os campos");
             }
         }
+
+       
     }
 }

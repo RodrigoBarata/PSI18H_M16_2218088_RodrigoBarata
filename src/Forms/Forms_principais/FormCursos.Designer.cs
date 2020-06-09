@@ -245,6 +245,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "Cursos";
             this.Text = "FormCursos";
+            this.Load += new System.EventHandler(this.Cursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtcursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

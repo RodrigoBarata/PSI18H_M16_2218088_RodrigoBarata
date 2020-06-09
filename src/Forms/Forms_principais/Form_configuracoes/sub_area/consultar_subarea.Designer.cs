@@ -129,6 +129,7 @@
             this.dtsubareas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtsubareas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtsubareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtsubareas.Enabled = false;
             this.dtsubareas.Location = new System.Drawing.Point(149, 77);
             this.dtsubareas.Name = "dtsubareas";
             this.dtsubareas.ReadOnly = true;
@@ -208,6 +209,7 @@
             this.Controls.Add(this.btnremover);
             this.Name = "consultar_subarea";
             this.Text = "consultar_subarea";
+            this.Load += new System.EventHandler(this.consultar_subarea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtsubareas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
