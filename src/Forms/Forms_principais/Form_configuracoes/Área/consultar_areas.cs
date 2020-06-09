@@ -114,23 +114,40 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         private void btnnovo_Click(object sender, EventArgs e)
         {
             string insertQuery = "INSERT INTO area(nome_area) VALUES('" + txtarea.Text + "')";
-            if (checkTextBoxesValues())
-            {
+            using (MySqlCommand cmd = new MySqlCommand(insertQuery, db.connection))
+            { 
+                if (checkTextBoxesValues())
+                {
                 if (checkArea())
                 {
                     MessageBox.Show("Já existe esta Área, escolha outra");
                 }
                 else
                 {
-                    executeMyQuery(insertQuery);
-                    dataview();
+                        try
+                        {
+                            db.openConnection();
+
+                            
+                            cmd.ExecuteNonQuery();
+                            dataview();
+                            db.closeConnection();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Erro:" + erro.Message);
+                        }
+                        finally
+                        {
+                            db.closeConnection();
+                        }
+                    }
+                }
+                else
+                {
+                MessageBox.Show("Preencha os campos");
                 }
             }
-            else
-            {
-                MessageBox.Show("Preencha os campos");
-            }
-            
         }
 
         private void consultar_areas_Load(object sender, EventArgs e)
@@ -150,8 +167,28 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 else
                 {
                     string updateQuery = "UPDATE area SET nome_area = '" + txtarea.Text + "' WHERE idarea =" + int.Parse(txtid.Text);
-                    executeMyQuery(updateQuery);
-                    dataview();
+                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
+                    {
+                        try
+                        {
+                            db.openConnection();
+
+
+                            cmd.ExecuteNonQuery();
+                            dataview();
+                            db.closeConnection();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Erro:" + erro.Message);
+                        }
+                        finally
+                        {
+                            db.closeConnection();
+                        }
+                    }
+
+                        
                 }
 
                 
@@ -169,20 +206,72 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         {
             if (checkTextBoxesValues())
             {
-                string deleteQuery = "DELETE FROM area WHERE idarea = " + int.Parse(txtid.Text);
-            executeMyQuery(deleteQuery);
-            dataview();
+                if (checkIdArea())
+                {
+                    MessageBox.Show("Esta Área contém subáreas\n Elimine primeiro as Subáreas");
+                }
+                else
+                {
+                    try
+                    {
+                        string deleteQuery = "DELETE FROM area WHERE idarea = " + int.Parse(txtid.Text);
+                        using (MySqlCommand cmd = new MySqlCommand(deleteQuery, db.connection))
+                        {
+                            db.openConnection();
+
+
+                            cmd.ExecuteNonQuery();
+                            dataview();
+                            db.closeConnection();
+                        }
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                    }
+                }
+                
             }
             else
             {
                 MessageBox.Show("Preencha os campos");
             }
         }
+        public Boolean checkIdArea()
+        {
+            DB db = new DB();
 
+            String nome = txtid.Text;
+
+
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM subarea WHERE area_idarea = @nome", db.getConnection());
+
+            command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void btnsearch_Click(object sender, EventArgs e)
         {
             MySqlDataReader mdr;
-            string select = "SELECT * FROM area WHERE idarea = " + txtconsultararea.Text;
+            string select = "SELECT * FROM area WHERE nome_area like '%" + txtconsultararea.Text + "%'";
             command = new MySqlCommand(select, db.connection);
             db.openConnection();
             mdr = command.ExecuteReader();
@@ -198,5 +287,9 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             }
             db.closeConnection();
         }
+
+      
+
+      
     }
 }

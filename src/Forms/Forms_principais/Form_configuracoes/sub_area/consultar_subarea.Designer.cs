@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbxarea = new System.Windows.Forms.ComboBox();
             this.btnsearch = new FontAwesome.Sharp.IconButton();
             this.txtid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,20 +40,9 @@
             this.btnnovo = new System.Windows.Forms.Button();
             this.txtsubarea = new System.Windows.Forms.TextBox();
             this.btnremover = new System.Windows.Forms.Button();
-            this.Área = new System.Windows.Forms.Label();
             this.cbxareas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtsubareas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cbxarea
-            // 
-            this.cbxarea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxarea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxarea.FormattingEnabled = true;
-            this.cbxarea.Location = new System.Drawing.Point(608, 77);
-            this.cbxarea.Name = "cbxarea";
-            this.cbxarea.Size = new System.Drawing.Size(121, 21);
-            this.cbxarea.TabIndex = 0;
             // 
             // btnsearch
             // 
@@ -190,16 +178,6 @@
             this.btnremover.UseVisualStyleBackColor = false;
             this.btnremover.Click += new System.EventHandler(this.btnremover_Click);
             // 
-            // Área
-            // 
-            this.Área.AutoSize = true;
-            this.Área.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Área.Location = new System.Drawing.Point(605, 51);
-            this.Área.Name = "Área";
-            this.Área.Size = new System.Drawing.Size(38, 17);
-            this.Área.TabIndex = 36;
-            this.Área.Text = "Área";
-            // 
             // cbxareas
             // 
             this.cbxareas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -208,6 +186,7 @@
             this.cbxareas.Name = "cbxareas";
             this.cbxareas.Size = new System.Drawing.Size(121, 21);
             this.cbxareas.TabIndex = 37;
+            this.cbxareas.SelectedIndexChanged += new System.EventHandler(this.cbxareas_SelectedIndexChanged);
             // 
             // consultar_subarea
             // 
@@ -215,7 +194,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cbxareas);
-            this.Controls.Add(this.Área);
             this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label3);
@@ -228,7 +206,6 @@
             this.Controls.Add(this.btnnovo);
             this.Controls.Add(this.txtsubarea);
             this.Controls.Add(this.btnremover);
-            this.Controls.Add(this.cbxarea);
             this.Name = "consultar_subarea";
             this.Text = "consultar_subarea";
             ((System.ComponentModel.ISupportInitialize)(this.dtsubareas)).EndInit();
@@ -238,8 +215,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbxarea;
         private FontAwesome.Sharp.IconButton btnsearch;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label label3;
@@ -252,7 +227,6 @@
         private System.Windows.Forms.Button btnnovo;
         private System.Windows.Forms.TextBox txtsubarea;
         private System.Windows.Forms.Button btnremover;
-        private System.Windows.Forms.Label Área;
         private System.Windows.Forms.ComboBox cbxareas;
     }
 }

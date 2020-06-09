@@ -35,56 +35,80 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             txtnome.Text = dtareas.CurrentRow.Cells[2].Value.ToString();
             
         }
+        public Boolean checkTextBoxesValues()
+        {
+            if (txtuser.Text.Equals("") || txtuser.Text.Equals(""))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         private void btneditar_Click(object sender, EventArgs e)
         {
             string updateQuery = "UPDATE `utilizador` SET `nome`='" + txtnome.Text + "',`username`='" + txtuser.Text + "' WHERE idutilizador =" + int.Parse(txtid.Text);
             using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
             {
-
-                try
+                if (checkTextBoxesValues())
                 {
-                    db.openConnection();
+                    try
+                    {
+                        db.openConnection();
 
 
-                    cmd.ExecuteNonQuery();
-                    dataview();
-                    db.closeConnection();
+                        cmd.ExecuteNonQuery();
+                        dataview();
+                        db.closeConnection();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                    }
                 }
-                catch (Exception erro)
+                else
                 {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    db.closeConnection();
+                    MessageBox.Show("Preencha os campos");
                 }
             }
         }
 
         private void btnremover_Click(object sender, EventArgs e)
         {
-            string deleteQuery = "DELETE FROM utilizador WHERE idutilizador = " + int.Parse(txtid.Text);
-            using (MySqlCommand cmd = new MySqlCommand(deleteQuery, db.connection))
+            if (checkTextBoxesValues())
             {
-
-                try
+                string deleteQuery = "DELETE FROM utilizador WHERE idutilizador = " + int.Parse(txtid.Text);
+                using (MySqlCommand cmd = new MySqlCommand(deleteQuery, db.connection))
                 {
-                    db.openConnection();
+
+                    try
+                    {
+                        db.openConnection();
 
 
-                    cmd.ExecuteNonQuery();
-                    dataview();
-                    db.closeConnection();
+                        cmd.ExecuteNonQuery();
+                        dataview();
+                        db.closeConnection();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                    }
                 }
-                catch (Exception erro)
-                {
-                    MessageBox.Show("Erro:" + erro.Message);
-                }
-                finally
-                {
-                    db.closeConnection();
-                }
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
             }
         }
     }
