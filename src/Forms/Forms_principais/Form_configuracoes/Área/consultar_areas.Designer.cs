@@ -39,7 +39,6 @@
             this.btneditar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
-            this.btnsearch = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtareas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +68,7 @@
             this.txtconsultararea.Name = "txtconsultararea";
             this.txtconsultararea.Size = new System.Drawing.Size(130, 20);
             this.txtconsultararea.TabIndex = 17;
+            this.txtconsultararea.TextChanged += new System.EventHandler(this.txtconsultararea_TextChanged);
             // 
             // panel2
             // 
@@ -159,30 +159,11 @@
             this.txtid.Size = new System.Drawing.Size(94, 20);
             this.txtid.TabIndex = 22;
             // 
-            // btnsearch
-            // 
-            this.btnsearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnsearch.FlatAppearance.BorderSize = 0;
-            this.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsearch.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnsearch.ForeColor = System.Drawing.Color.Black;
-            this.btnsearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnsearch.IconColor = System.Drawing.Color.Black;
-            this.btnsearch.IconSize = 16;
-            this.btnsearch.Location = new System.Drawing.Point(312, 51);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Rotation = 0D;
-            this.btnsearch.Size = new System.Drawing.Size(34, 23);
-            this.btnsearch.TabIndex = 23;
-            this.btnsearch.UseVisualStyleBackColor = false;
-            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
-            // 
             // consultar_areas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 448);
-            this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -215,6 +196,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtid;
-        private FontAwesome.Sharp.IconButton btnsearch;
     }
 }

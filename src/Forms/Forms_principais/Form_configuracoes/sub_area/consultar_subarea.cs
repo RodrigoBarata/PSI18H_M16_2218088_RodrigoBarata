@@ -13,12 +13,14 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 {
     public partial class consultar_subarea : Form
     {
-        MySqlCommand command;
+       
         public consultar_subarea()
         {
             InitializeComponent();
+            checkArea();
+            dataview();
 
-            combobox_consultar();
+            
             
         }
         DB db = new DB();
@@ -100,6 +102,31 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             else
             {
                 return false;
+            }
+        }
+        public void checkArea()
+        {
+            DB db = new DB();
+
+           DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM area", db.getConnection());
+
+            
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count ==0)
+            {
+                EnableFalse();
+            }
+            else
+            {
+                combobox_consultar();
+                dataview();
             }
         }
 
@@ -235,36 +262,16 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
         }
 
-        private void btnsearch_Click(object sender, EventArgs e)
-        {
-            MySqlDataReader mdr;
-
-            string select = "SELECT * FROM subarea WHERE nome_subarea like '%" + txtconsultararea.Text + "%'";
-            command = new MySqlCommand(select, db.connection);
-            db.openConnection();
-            mdr = command.ExecuteReader();
-
-            if (mdr.Read())
-            {
-
-                txtsubarea.Text = mdr.GetString("nome_subarea");
-            }
-            else
-            {
-                MessageBox.Show("Subárea não encontrada");
-            }
-            db.closeConnection();
-        }
+        
 
         private void cbxareas_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataview();
         }
 
-        private void consultar_subarea_Load(object sender, EventArgs e)
+        public void EnableFalse()
         {
-            if(cbxareas.Text.Equals(""))
-            {
+           
                 MessageBox.Show("Tem de inserir uma Área");
                 dtsubareas.Enabled = false;
                 txtconsultararea.Enabled = false;
@@ -272,19 +279,26 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 btneditar.Enabled = false;
                 btnnovo.Enabled = false;
                 btnremover.Enabled = false;
-                btnsearch.Enabled = false;
-            }
-            else
+               
+               
+            
+        }
+
+        private void txtconsultararea_TextChanged(object sender, EventArgs e)
+        {
+            search(txtconsultararea.Text);
+        }
+        public void search(string search)
+        {
+            DB db = new DB();
             {
-                txtconsultararea.Enabled = true;
-                txtsubarea.Enabled = true;
-                btneditar.Enabled = true;
-                btnnovo.Enabled = true;
-                btnremover.Enabled = true;
-                btnsearch.Enabled = true;
-                dtsubareas.Enabled = true;
-                dataview();
+                string pesquisarQuery = "SELECT * FROM subarea WHERE nome_subarea LIKE '%" + search + "%'";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dtsubareas.DataSource = table;
             }
+
         }
     }
 }

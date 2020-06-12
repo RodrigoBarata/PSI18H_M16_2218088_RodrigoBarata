@@ -268,28 +268,22 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return false;
             }
         }
-        private void btnsearch_Click(object sender, EventArgs e)
+        public void search(string search)
         {
-            MySqlDataReader mdr;
-            string select = "SELECT * FROM area WHERE nome_area like '%" + txtconsultararea.Text + "%'";
-            command = new MySqlCommand(select, db.connection);
-            db.openConnection();
-            mdr = command.ExecuteReader();
-            
-            if(mdr.Read())
+            DB db = new DB();
             {
-                
-                txtarea.Text = mdr.GetString("nome_area");
+                string pesquisarQuery = "SELECT * FROM area WHERE nome_area LIKE '%" + search + "%'";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+               dtareas.DataSource = table;
             }
-            else
-            {
-                MessageBox.Show("Área não encontrada");
-            }
-            db.closeConnection();
+
         }
 
-      
-
-      
+        private void txtconsultararea_TextChanged(object sender, EventArgs e)
+        {
+            search(txtconsultararea.Text);
+        }
     }
 }

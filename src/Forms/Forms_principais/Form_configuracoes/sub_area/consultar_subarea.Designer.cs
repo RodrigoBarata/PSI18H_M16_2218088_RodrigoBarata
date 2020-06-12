@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnsearch = new FontAwesome.Sharp.IconButton();
             this.txtid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,24 +42,6 @@
             this.cbxareas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtsubareas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnsearch
-            // 
-            this.btnsearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnsearch.FlatAppearance.BorderSize = 0;
-            this.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsearch.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnsearch.ForeColor = System.Drawing.Color.Black;
-            this.btnsearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.btnsearch.IconColor = System.Drawing.Color.Black;
-            this.btnsearch.IconSize = 16;
-            this.btnsearch.Location = new System.Drawing.Point(297, 51);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Rotation = 0D;
-            this.btnsearch.Size = new System.Drawing.Size(34, 23);
-            this.btnsearch.TabIndex = 35;
-            this.btnsearch.UseVisualStyleBackColor = false;
-            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
             // txtid
             // 
@@ -120,6 +101,7 @@
             this.txtconsultararea.Name = "txtconsultararea";
             this.txtconsultararea.Size = new System.Drawing.Size(130, 20);
             this.txtconsultararea.TabIndex = 30;
+            this.txtconsultararea.TextChanged += new System.EventHandler(this.txtconsultararea_TextChanged);
             // 
             // dtsubareas
             // 
@@ -129,7 +111,6 @@
             this.dtsubareas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtsubareas.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtsubareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtsubareas.Enabled = false;
             this.dtsubareas.Location = new System.Drawing.Point(149, 77);
             this.dtsubareas.Name = "dtsubareas";
             this.dtsubareas.ReadOnly = true;
@@ -195,7 +176,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.cbxareas);
-            this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -209,7 +189,6 @@
             this.Controls.Add(this.btnremover);
             this.Name = "consultar_subarea";
             this.Text = "consultar_subarea";
-            this.Load += new System.EventHandler(this.consultar_subarea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtsubareas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,7 +196,6 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton btnsearch;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

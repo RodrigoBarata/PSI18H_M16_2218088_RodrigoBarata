@@ -18,6 +18,8 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         public Cursos()
         {
             InitializeComponent();
+            checkArea();
+            checkSubArea();
             
 
 
@@ -132,6 +134,56 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             else
             {
                 return false;
+            }
+        }
+        public void checkArea()
+        {
+            DB db = new DB();
+
+            
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM area ", db.getConnection());
+
+            
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show("Não tem nehuma Área criadas");
+                EnableFalse();
+            }
+            else
+            {
+                combobox_area();
+            }
+        }
+        public void checkSubArea()
+        {
+            DB db = new DB();
+
+
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM subarea ", db.getConnection());
+
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show("Não tem nehuma Subárea criadas");
+                EnableFalse();
+            }
+            else
+            {
+                combobox_subarea();
             }
         }
         private void dtcursos_MouseClick(object sender, MouseEventArgs e)
@@ -271,41 +323,23 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             }
             db.closeConnection();
         }
-
-        private void Cursos_Load(object sender, EventArgs e)
+        public void EnableFalse()
         {
-             if(cbxareas.Text.Equals("") || cbxsubarea.Text.Equals(""))
-            {
-                MessageBox.Show("Não tem nehuma Área e Subárea criadas");
-                dtcursos.Enabled = false;
-                txtcurso.Enabled = false;
-                txtid.Enabled = false;
-                txtsearchcursos.Enabled = false;
-                btneditar.Enabled = false;
-                btnnovo.Enabled = false;
-                btnremover.Enabled = false;
-                btnsearch.Enabled = false;
-                cbxareas.Enabled = false;
-                cbxsubarea.Enabled = false;
 
-            }
-             else
-            {
-                dtcursos.Enabled = true;
-                txtcurso.Enabled = true;
-                txtid.Enabled = true;
-                txtsearchcursos.Enabled = true;
-                btneditar.Enabled = true;
-                btnnovo.Enabled = true;
-                btnremover.Enabled = true;
-                btnsearch.Enabled = true;
-                cbxareas.Enabled = true;
-                cbxsubarea.Enabled = true;
-                dataview();
-                combobox_area();
-                combobox_subarea();
-                
-            }
+            
+            dtcursos.Enabled = false;
+            txtcurso.Enabled = false;
+            txtid.Enabled = false;
+            txtsearchcursos.Enabled = false;
+            btneditar.Enabled = false;
+            btnnovo.Enabled = false;
+            btnremover.Enabled = false;
+            btnsearch.Enabled = false;
+            cbxareas.Enabled = false;
+            cbxsubarea.Enabled = false;
+
         }
+                
+         
     }
 }
