@@ -15,9 +15,9 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
     public partial class consultar_areas : Form
     {
         DB db = new DB();
-        MySqlCommand command;
+        
 
-        DataTable dt = new DataTable();
+       
         
         public consultar_areas()
         {
@@ -83,33 +83,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             txtarea.Text = dtareas.CurrentRow.Cells[1].Value.ToString();
         }
 
-        public void executeMyQuery(string query)
-        {
-            try
-            {
-                db.openConnection();
-                command = new MySqlCommand(query, db.connection);
-
-                if(command.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Ação Executada");
-                }
-                else
-                {
-                    MessageBox.Show("Ação não Executada");
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                db.closeConnection();
-            }
-
-
-        }
+        
 
         private void btnnovo_Click(object sender, EventArgs e)
         {

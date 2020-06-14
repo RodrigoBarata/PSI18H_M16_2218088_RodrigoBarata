@@ -231,9 +231,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            string updateQuery = "UPDATE `curso` SET `nome_curso`='" + txtcurso.Text + "',`subarea_area_idarea`='" + cbxareas.SelectedValue + "',`subarea_idsubarea`='" + cbxsubarea.SelectedValue + "' WHERE idcursos =" + int.Parse(txtid.Text);
-            using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
-            {
+            
                 if (checkTextBoxesValues())
                 {
                     if (checkCurso())
@@ -244,12 +242,16 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                     {
                         try
                         {
+                        string updateQuery = "UPDATE `curso` SET `nome_curso`='" + txtcurso.Text + "',`subarea_area_idarea`='" + cbxareas.SelectedValue + "',`subarea_idsubarea`='" + cbxsubarea.SelectedValue + "' WHERE idcursos =" + int.Parse(txtid.Text);
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
+                        {
                             db.openConnection();
 
 
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                        }
                         }
                         catch (Exception erro)
                         {
@@ -266,7 +268,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                     MessageBox.Show("Preencha os campos");
                 }
 
-            }
+            
         }
 
         private void btnremover_Click(object sender, EventArgs e)
