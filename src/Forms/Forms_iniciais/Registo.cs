@@ -35,7 +35,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
                 db.openConnection();
 
-                if(! checkTextBoxesValues())
+                if(checkTextBoxesValues())
                 {
                     if(txtPassword.Text.Equals(txtpassworcheck.Text))
                     {
@@ -101,13 +101,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         public Boolean checkTextBoxesValues()
         {
-            if (txtNome.Equals("") || txtUsername.Equals("") || txtPassword.Equals("") || txtpassworcheck.Equals(""))
+            if (txtNome.Text.Equals("") || txtUsername.Text.Equals("") || txtPassword.Text.Equals("") || txtpassworcheck.Text.Equals(""))
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 

@@ -30,7 +30,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                 return true;
             }
         }
-        public Boolean checkArea()
+        public Boolean checkContribuinte()
         {
             DB db = new DB();
 
@@ -68,11 +68,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            dataview();
+            
+            checkData();
         }
 
         private void dtcliente_MouseClick(object sender, MouseEventArgs e)
         {
+            txtid.Text = dtcliente.CurrentRow.Cells[0].Value.ToString();
             txtnome.Text = dtcliente.CurrentRow.Cells[1].Value.ToString();
             txtmorada.Text = dtcliente.CurrentRow.Cells[2].Value.ToString();
             txtcontri.Text = dtcliente.CurrentRow.Cells[3].Value.ToString();
@@ -82,7 +84,164 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void btnnovo_Click(object sender, EventArgs e)
         {
+            string insertQuery = "INSERT INTO `cliente`(`nome`, `morada`, `contribuinte`, `n_telefone`, `perfil_de_cliente`)" +
+                " VALUES ('"+txtnome.Text+"','"+txtmorada.Text+"','"+txtcontri.Text+"','"+txttele.Text+"','"+cbxperfil.Text+"')";
+            using (MySqlCommand cmd = new MySqlCommand(insertQuery, db.connection))
+            {
+                if (CheckTextBoxes())
+                {
+                    if (checkContribuinte())
+                    {
+                        MessageBox.Show("Já existe esta Número de Contribuinte, escolha outro");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            db.openConnection();
 
+
+                            cmd.ExecuteNonQuery();
+                            checkData();
+                            db.closeConnection();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Erro:" + erro.Message);
+                        }
+                        finally
+                        {
+                            db.closeConnection();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha os campos");
+                }
+            }
+        }
+
+        private void txtcontri_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+            if(!Char.IsDigit(chr) && chr !=8)
+            {
+                e.Handled = true;
+                MessageBox.Show("Só é valido números");
+            }
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            if (CheckTextBoxes())
+            {
+                
+                    string updateQuery = "UPDATE `cliente` SET `nome`='"+txtnome.Text+"',`morada`='"+txtmorada.Text+"',`contribuinte`='"+txtcontri.Text+"',`n_telefone`='"+txttele.Text+"',`perfil_de_cliente`='"+cbxperfil.Text+"' WHERE idcliente =" + int.Parse(txtid.Text);
+                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
+                    {
+                        try
+                        {
+                            db.openConnection();
+
+
+                            cmd.ExecuteNonQuery();
+                            dataview();
+                            db.closeConnection();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Erro:" + erro.Message);
+                        }
+                        finally
+                        {
+                            db.closeConnection();
+                        }
+                    
+
+
+                }
+
+            }
+        }
+
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+            if (CheckTextBoxes())
+            {
+                
+
+                    try
+                    {
+                        string deleteQuery = "DELETE FROM cliente WHERE idcliente = " + int.Parse(txtid.Text);
+                        using (MySqlCommand cmd = new MySqlCommand(deleteQuery, db.connection))
+                        {
+                            db.openConnection();
+
+
+                            cmd.ExecuteNonQuery();
+                        checkData();
+                            db.closeConnection();
+                        }
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                    }
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
+            }
+        }
+        public void checkData()
+        {
+            DB db = new DB();
+
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM cliente", db.getConnection());
+
+
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                dtcliente.Enabled = false;
+                dataview();
+            }
+            else
+            {
+                dtcliente.Enabled = true;
+                dataview();
+            }
+        }
+        public void search(string search)
+        {
+            DB db = new DB();
+            {
+                string pesquisarQuery = "SELECT * FROM area WHERE nome_area LIKE '%" + search + "%'";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dtcliente.DataSource = table;
+            }
+
+        }
+
+        private void txtconsultararea_TextChanged(object sender, EventArgs e)
+        {
+            search(txtconsultararea.Text);
         }
     }
 }

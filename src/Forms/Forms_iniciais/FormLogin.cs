@@ -26,7 +26,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM utilizador WHERE username = @username and password = @password", db.getConnection());
+            MySqlCommand command = new MySqlCommand("select * from utilizador where(username collate utf8_bin) = @username and(password collate utf8_bin) =@password; ", db.getConnection());
 
             command.Parameters.Add("@username", MySqlDbType.VarChar).Value = username;
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Trim();
