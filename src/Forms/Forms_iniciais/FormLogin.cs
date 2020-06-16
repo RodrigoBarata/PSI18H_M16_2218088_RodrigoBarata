@@ -32,29 +32,31 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Trim();
 
             adapter.SelectCommand = command;
+            
+                adapter.Fill(table);
+                if (table.Rows.Count > 0)
+                {
+                    this.Hide();
+                    DBViewer main = new DBViewer();
+                    main.Show();
+                }
+                else
+                {
+                    if (username.Trim().Equals(""))
+                    {
+                        MessageBox.Show("Insere o teu nome para efetuares o Login");
+                    }
+                    else if (password.Trim().Equals(""))
+                    {
+                        MessageBox.Show("Insere a password para efetuares os Login");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username ou Password errados");
+                    }
+                }
+           
 
-            adapter.Fill(table);
-            if (table.Rows.Count > 0)
-            {
-                this.Hide();
-                DBViewer main = new DBViewer();
-                main.Show();
-            }
-            else
-            {
-               if(username.Trim().Equals(""))
-               {
-                    MessageBox.Show("Insere o teu nome para efetuares o Login");
-               }
-               else if(password.Trim().Equals(""))
-               {
-                    MessageBox.Show("Insere a password para efetuares os Login");
-               }
-               else
-               {
-                    MessageBox.Show("Username ou Password errados");
-               }
-            }
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -46,8 +46,8 @@
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
             this.btnnovo = new System.Windows.Forms.Button();
-            this.dtcliente = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dtcliente)).BeginInit();
+            this.dt = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dt)).BeginInit();
             this.SuspendLayout();
             // 
             // txtid
@@ -74,16 +74,17 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(609, 322);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 17);
+            this.label6.Size = new System.Drawing.Size(126, 17);
             this.label6.TabIndex = 59;
-            this.label6.Text = "Perfil de Cliente";
+            this.label6.Text = "Perfil de Formador";
             // 
             // cbxperfil
             // 
             this.cbxperfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxperfil.Items.AddRange(new object[] {
-            "Entidade",
-            "Particular"});
+            "Ativo",
+            "Ausente",
+            "Lista Negra"});
             this.cbxperfil.Location = new System.Drawing.Point(608, 342);
             this.cbxperfil.Name = "cbxperfil";
             this.cbxperfil.Size = new System.Drawing.Size(121, 21);
@@ -95,6 +96,7 @@
             this.txttele.Name = "txttele";
             this.txttele.Size = new System.Drawing.Size(138, 20);
             this.txttele.TabIndex = 57;
+            this.txttele.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontri_KeyPress);
             // 
             // txtcontri
             // 
@@ -102,6 +104,7 @@
             this.txtcontri.Name = "txtcontri";
             this.txtcontri.Size = new System.Drawing.Size(138, 20);
             this.txtcontri.TabIndex = 56;
+            this.txtcontri.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontri_KeyPress);
             // 
             // txtmorada
             // 
@@ -182,6 +185,7 @@
             this.txtconsultararea.Name = "txtconsultararea";
             this.txtconsultararea.Size = new System.Drawing.Size(292, 20);
             this.txtconsultararea.TabIndex = 47;
+            this.txtconsultararea.TextChanged += new System.EventHandler(this.txtconsultararea_TextChanged);
             // 
             // btnexcluir
             // 
@@ -195,6 +199,7 @@
             this.btnexcluir.TabIndex = 46;
             this.btnexcluir.Text = "Excluir";
             this.btnexcluir.UseVisualStyleBackColor = false;
+            this.btnexcluir.Click += new System.EventHandler(this.btnexcluir_Click);
             // 
             // btneditar
             // 
@@ -208,6 +213,7 @@
             this.btneditar.TabIndex = 45;
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btnnovo
             // 
@@ -221,22 +227,24 @@
             this.btnnovo.TabIndex = 44;
             this.btnnovo.Text = "Novo";
             this.btnnovo.UseVisualStyleBackColor = false;
+            this.btnnovo.Click += new System.EventHandler(this.btnnovo_Click);
             // 
-            // dtcliente
+            // dt
             // 
-            this.dtcliente.AllowUserToAddRows = false;
-            this.dtcliente.AllowUserToDeleteRows = false;
-            this.dtcliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtcliente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtcliente.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtcliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtcliente.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dtcliente.Location = new System.Drawing.Point(7, 78);
-            this.dtcliente.Name = "dtcliente";
-            this.dtcliente.ReadOnly = true;
-            this.dtcliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtcliente.Size = new System.Drawing.Size(554, 314);
-            this.dtcliente.TabIndex = 43;
+            this.dt.AllowUserToAddRows = false;
+            this.dt.AllowUserToDeleteRows = false;
+            this.dt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dt.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dt.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.dt.Location = new System.Drawing.Point(7, 78);
+            this.dt.Name = "dt";
+            this.dt.ReadOnly = true;
+            this.dt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dt.Size = new System.Drawing.Size(554, 314);
+            this.dt.TabIndex = 43;
+            this.dt.Click += new System.EventHandler(this.dtcliente_Click);
             // 
             // Formadores
             // 
@@ -261,10 +269,11 @@
             this.Controls.Add(this.btnexcluir);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnnovo);
-            this.Controls.Add(this.dtcliente);
+            this.Controls.Add(this.dt);
             this.Name = "Formadores";
             this.Text = "FormFormadores";
-            ((System.ComponentModel.ISupportInitialize)(this.dtcliente)).EndInit();
+            this.Load += new System.EventHandler(this.Formadores_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,6 +299,6 @@
         private System.Windows.Forms.Button btnexcluir;
         private System.Windows.Forms.Button btneditar;
         private System.Windows.Forms.Button btnnovo;
-        private System.Windows.Forms.DataGridView dtcliente;
+        private System.Windows.Forms.DataGridView dt;
     }
 }

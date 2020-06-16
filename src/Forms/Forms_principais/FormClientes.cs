@@ -230,7 +230,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         {
             DB db = new DB();
             {
-                string pesquisarQuery = "SELECT * FROM area WHERE nome_area LIKE '%" + search + "%'";
+                string pesquisarQuery = "SELECT * FROM cliente WHERE nome LIKE '%" + search + "%'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
                 DataTable table = new DataTable();
                 adapter.Fill(table);
