@@ -229,7 +229,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         }
         public void search(string search)
         {
-            DB db = new DB();
+            
             {
                 string pesquisarQuery = "SELECT * FROM cliente WHERE nome LIKE '%" + search + "%'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
