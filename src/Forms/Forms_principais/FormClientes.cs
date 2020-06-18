@@ -30,6 +30,15 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                 return true;
             }
         }
+        public void clean()
+        {
+            txtid.Text = "";
+            txtmorada.Text = "";
+            txtcontri.Text = "";
+            txtnome.Text = "";
+            txttele.Text = "";
+
+        }
         public Boolean checkContribuinte()
         {
             DB db = new DB();
@@ -104,6 +113,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                             cmd.ExecuteNonQuery();
                             checkData();
                             db.closeConnection();
+                            clean();
                         }
                         catch (Exception erro)
                         {
@@ -148,7 +158,8 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
-                        }
+                            clean();
+                    }
                         catch (Exception erro)
                         {
                             MessageBox.Show("Erro:" + erro.Message);
@@ -180,9 +191,11 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
 
                             cmd.ExecuteNonQuery();
-                        checkData();
+                          
+                            checkData();
                             db.closeConnection();
-                        }
+                            clean();
+                    }
                     }
                     catch (Exception erro)
                     {

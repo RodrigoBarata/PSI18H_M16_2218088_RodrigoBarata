@@ -18,6 +18,14 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         {
             InitializeComponent();
         }
+        public void clean()
+        {
+            txtid.Text = "";
+            txtnome.Text = "";
+            txtmorada.Text = "";
+            txttele.Text = "";
+            txtcontri.Text = "";
+        }
         public Boolean CheckTextBoxes()
         {
             if (txtnome.Text.Equals("") || txtmorada.Text.Equals("") || txtcontri.Text.Equals("") || txttele.Text.Equals("") || cbxperfil.Text.Equals(""))
@@ -104,6 +112,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                             cmd.ExecuteNonQuery();
                             checkData();
                             db.closeConnection();
+                            clean();
                         }
                         catch (Exception erro)
                         {
@@ -148,6 +157,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                         cmd.ExecuteNonQuery();
                         dataview();
                         db.closeConnection();
+                        clean();
                     }
                     catch (Exception erro)
                     {
@@ -180,8 +190,10 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
 
                         cmd.ExecuteNonQuery();
-                        checkData();
+                        dataview();
+                        
                         db.closeConnection();
+                        clean();
                     }
                 }
                 catch (Exception erro)

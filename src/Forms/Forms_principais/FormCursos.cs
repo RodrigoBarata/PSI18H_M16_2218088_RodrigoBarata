@@ -24,6 +24,11 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
 
         }
+        public void clean()
+        {
+            txtid.Text = "";
+            txtcurso.Text = "";
+        }
         void combobox_area()
         {
             string selectQuery = "SELECT * FROM area ORDER BY nome_area ASC;";
@@ -215,6 +220,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            clean();
                         }
                         catch
                         {
@@ -251,6 +257,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            clean();
                         }
                         }
                         catch (Exception erro)
@@ -287,6 +294,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                         cmd.ExecuteNonQuery();
                         dataview();
                         db.closeConnection();
+                        clean();
                     }
                 }
                 catch (Exception erro)

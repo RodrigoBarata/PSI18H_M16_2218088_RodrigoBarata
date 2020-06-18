@@ -25,7 +25,11 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             
 
         }
-        
+        public void cleanTextBox()
+        {
+            txtid.Text = "";
+            txtarea.Text = "";
+        }
        
         public Boolean checkTextBoxesValues()
         {
@@ -106,6 +110,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            cleanTextBox();
                         }
                         catch (Exception erro)
                         {
@@ -151,6 +156,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            cleanTextBox();
                         }
                         catch (Exception erro)
                         {
@@ -197,6 +203,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            cleanTextBox();
                         }
                     }
                     catch (Exception erro)

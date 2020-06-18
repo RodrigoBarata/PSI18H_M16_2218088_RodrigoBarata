@@ -37,6 +37,11 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
 
         }
+        public void cleanText()
+        {
+            txtid.Text = "";
+            txtsubarea.Text = "";
+        }
 
         void combobox_consultar()
         {
@@ -153,6 +158,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            cleanText();
                         }
                         catch (Exception erro)
                         {
@@ -195,6 +201,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            cleanText();
                         }
                         catch (Exception erro)
                         {
@@ -243,6 +250,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            cleanText();
                         }
                     }
                     catch (Exception erro)
