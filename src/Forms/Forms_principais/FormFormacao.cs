@@ -286,11 +286,26 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         }
         public void dataview()
         {
-            string selectQuery = "SELECT * FROM formacao";
+            string selectQuery = "select F.idformacao, F.data_de_inicio,F.data_final , F2.nome, cli.nome, C1.nome_curso, Su.nome_subarea, A1.nome_area FROM  formacao F  join formador F2 on F.formador_idformador=F2.idformador join cliente cli on F.cliente_idcliente=cli.idcliente join curso C1 on F.curso_idcursos=C1.idcursos join subarea Su on C1.subarea_idsubarea=Su.idsubarea join area A1 on Su.area_idarea=A1.idarea";
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, db.connection);
             adapter.Fill(table);
             dt.DataSource = table;
+                     
+            MySqlCommand command = new MySqlCommand(selectQuery, db.getConnection());
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                
+                dt.Enabled = false;
+
+
+                cbxcliente.Enabled = false;
+               
+            }
 
 
 
@@ -306,6 +321,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             checkCombox();
             checkComboxFormador();
             checkComboxCliente();
+            dataview();
         }
 
         private void cbxsub_SelectedIndexChanged(object sender, EventArgs e)
@@ -326,8 +342,8 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                         {
                             db.openConnection();
 
-                            cmd.Parameters.AddWithValue("@param1", DTPinicio.Value);
-                            cmd.Parameters.AddWithValue("@param2", DTPFim.Value);
+                            cmd.Parameters.AddWithValue("@param1", DateTime.Parse(DTPinicio.Text).ToString("yyyy-MM-dd"));
+                            cmd.Parameters.AddWithValue("@param2", DateTime.Parse(DTPFim.Text).ToString("yyyy-MM-dd"));
                             cmd.Parameters.AddWithValue("@param3", cbxformador.SelectedValue);
                             cmd.Parameters.AddWithValue("@param4", cbxcliente.SelectedValue);
                             cmd.Parameters.AddWithValue("@param5", cbxarea.SelectedValue);
@@ -352,6 +368,105 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                     MessageBox.Show("Preencha todos os campos");
                 }
             }
+        }
+
+        private void dt_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtid.Text = dt.CurrentRow.Cells[0].Value.ToString();
+            DTPinicio.Text = dt.CurrentRow.Cells[1].Value.ToString();
+            DTPFim.Text = dt.CurrentRow.Cells[2].Value.ToString();
+            cbxformador.Text = dt.CurrentRow.Cells[3].Value.ToString();
+            cbxcurso.Text = dt.CurrentRow.Cells[4].Value.ToString();
+            cbxsub.Text = dt.CurrentRow.Cells[5].Value.ToString();
+            cbxarea.Text = dt.CurrentRow.Cells[6].Value.ToString();
+            cbxcliente.Text = dt.CurrentRow.Cells[7].Value.ToString();
+
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            if (checkTextBoxesValues())
+            {
+               
+               
+                    try
+                    {
+                        string updateQuery = "UPDATE `formacao` SET `data_de_inicio`='" + DateTime.Parse(DTPinicio.Text).ToString("yyyy-MM-dd") + "',`data_final`='" + DateTime.Parse(DTPFim.Text).ToString("yyyy-MM-dd") + "',`formador_idformador`='" + cbxformador.Text + "',`curso_idcursos`='" +cbxcurso.Text + "',`curso_subarea_idsubarea`='" + cbxsub.Text + "',`curso_subarea_area_idarea`='" + cbxarea.Text + "',`cliente_idcliente`='" + cbxcliente.Text + "' WHERE idformacao =" + int.Parse(txtid.Text);
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, db.connection))
+                        {
+                            db.openConnection();
+
+
+                            cmd.ExecuteNonQuery();
+                            dataview();
+                            db.closeConnection();
+                        }
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Erro:" + erro.Message);
+                    }
+                    finally
+                    {
+                        db.closeConnection();
+                   }
+                
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
+            }
+        }
+
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+            if (checkTextBoxesValues())
+            {
+
+                try
+                {
+                    string deleteQuery = "DELETE FROM formacao WHERE idformacao = " + int.Parse(txtid.Text);
+                    using (MySqlCommand cmd = new MySqlCommand(deleteQuery, db.connection))
+                    {
+                        db.openConnection();
+
+
+                        cmd.ExecuteNonQuery();
+                        dataview();
+                        db.closeConnection();
+                    }
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show("Erro:" + erro.Message);
+                }
+                finally
+                {
+                    db.closeConnection();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Preencha os campos");
+            }
+        }
+        public void search(string search)
+        {
+            DB db = new DB();
+            {
+                string pesquisarQuery = "SELECT * FROM formacao WHERE nome LIKE '%" + search + "%'";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dt.DataSource = table;
+            }
+
+        }
+
+        private void txtconsultar_TextChanged(object sender, EventArgs e)
+        {
+            search(txtconsultar.Text);
         }
     }
 }

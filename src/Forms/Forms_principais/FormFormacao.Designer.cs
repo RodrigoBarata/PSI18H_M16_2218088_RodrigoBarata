@@ -147,6 +147,7 @@
             this.txtconsultar.Name = "txtconsultar";
             this.txtconsultar.Size = new System.Drawing.Size(292, 20);
             this.txtconsultar.TabIndex = 66;
+            this.txtconsultar.TextChanged += new System.EventHandler(this.txtconsultar_TextChanged);
             // 
             // btnexcluir
             // 
@@ -160,6 +161,7 @@
             this.btnexcluir.TabIndex = 65;
             this.btnexcluir.Text = "Excluir";
             this.btnexcluir.UseVisualStyleBackColor = false;
+            this.btnexcluir.Click += new System.EventHandler(this.btnexcluir_Click);
             // 
             // btneditar
             // 
@@ -173,6 +175,7 @@
             this.btneditar.TabIndex = 64;
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btnnovo
             // 
@@ -203,6 +206,7 @@
             this.dt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dt.Size = new System.Drawing.Size(554, 314);
             this.dt.TabIndex = 62;
+            this.dt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dt_MouseClick);
             // 
             // label7
             // 

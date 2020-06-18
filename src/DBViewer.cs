@@ -29,7 +29,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata
 
             
             
-            lblTitleChildForm.Text = "Login";
+            lblTitleChildForm.Text = "Home";
 
             this.Text = string.Empty;
             this.ControlBox = false;
