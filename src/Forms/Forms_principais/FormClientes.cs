@@ -30,6 +30,17 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                 return true;
             }
         }
+        public Boolean CheckText()
+        {
+            if (txtnome.Text.Equals("") || txtmorada.Text.Equals("") || txtcontri.Text.Equals("") || txttele.Text.Equals("") )
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public void clean()
         {
             txtid.Text = "";
@@ -178,7 +189,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
         private void btnexcluir_Click(object sender, EventArgs e)
         {
-            if (CheckTextBoxes())
+            if (CheckText())
             {
                 
 

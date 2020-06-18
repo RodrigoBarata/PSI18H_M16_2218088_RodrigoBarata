@@ -69,7 +69,33 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return false;
             }
         }
-        
+        public void check()
+        {
+ 
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM area", db.getConnection());
+
+           
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                dtareas.Enabled = false;
+            }
+            else
+            {
+                dtareas.Enabled = true;
+                dataview();
+            }
+        }
+
+
+
         public void dataview()
         {
             string selectQuery = "SELECT * FROM area";
@@ -81,8 +107,9 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
 
 
-        private void dtareas_MouseClick(object sender, MouseEventArgs e)
+        public void dtareas_MouseClick(object sender, MouseEventArgs e)
         {
+
             txtid.Text = dtareas.CurrentRow.Cells[0].Value.ToString();
             txtarea.Text = dtareas.CurrentRow.Cells[1].Value.ToString();
         }
@@ -108,6 +135,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
                             
                             cmd.ExecuteNonQuery();
+                            check();
                             dataview();
                             db.closeConnection();
                             cleanTextBox();
@@ -131,7 +159,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
         private void consultar_areas_Load(object sender, EventArgs e)
         {
-            dataview();
+            check();
         }
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -203,6 +231,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.ExecuteNonQuery();
                             dataview();
                             db.closeConnection();
+                            check();
                             cleanTextBox();
                         }
                     }

@@ -18,23 +18,43 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         {
             InitializeComponent();
             checkArea();
-            dataview();
+            check();
 
-            
-            
+
+
+
         }
         DB db = new DB();
 
+        public void check()
+        {
+            
+            DataTable table = new DataTable();
 
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM subarea", db.getConnection());
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+            if (table.Rows.Count == 0)
+            {
+                dtsubareas.Enabled = false;
+            }
+            else
+            {
+                dtsubareas.Enabled = true;
+                dataview();
+            }
+        }
         public void dataview()
         {
-            string selectQuery = "SELECT idsubarea, nome_subarea FROM subarea WHERE area_idarea = " + cbxareas.SelectedValue;
+             string selectQuery = "SELECT idsubarea, nome_subarea FROM subarea WHERE area_idarea = " + cbxareas.SelectedValue;
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, db.connection);
             adapter.Fill(table);
             dtsubareas.DataSource = table;
-
-
 
         }
         public void cleanText()
@@ -109,6 +129,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return false;
             }
         }
+
         public void checkArea()
         {
             DB db = new DB();
@@ -157,6 +178,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                             cmd.Parameters.AddWithValue("@param2", cbxareas.SelectedValue);
                             cmd.ExecuteNonQuery();
                             dataview();
+                            check();
                             db.closeConnection();
                             cleanText();
                         }
@@ -200,6 +222,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
                             cmd.ExecuteNonQuery();
                             dataview();
+                            check();
                             db.closeConnection();
                             cleanText();
                         }
@@ -249,6 +272,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
 
                             cmd.ExecuteNonQuery();
                             dataview();
+                            check();
                             db.closeConnection();
                             cleanText();
                         }
@@ -275,6 +299,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         private void cbxareas_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataview();
+            check();
         }
 
         public void EnableFalse()

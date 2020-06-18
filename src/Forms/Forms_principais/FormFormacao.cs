@@ -250,13 +250,12 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             {
                 MessageBox.Show("Não tem nenhum Cliente");
                 dt.Enabled = false;
-
-
                 cbxcliente.Enabled = false;
                 cbxcliente.Text = "";
             }
             else
             {
+                cbxcliente.Enabled = true;
                 string selectQuery = "SELECT * FROM cliente ";
                 using (MySqlCommand mysqlcommand = new MySqlCommand(selectQuery, db.connection))
                 {
@@ -306,15 +305,14 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
             adapter.SelectCommand = command;
 
-            adapter.Fill(table);
+            
             if (table.Rows.Count == 0)
             {
                 
                 dt.Enabled = false;
 
 
-                cbxcliente.Enabled = false;
-               
+                             
             }
 
 
@@ -469,7 +467,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         {
             DB db = new DB();
             {
-                string pesquisarQuery = "SELECT * FROM formacao WHERE nome LIKE '%" + search + "%'";
+                string pesquisarQuery = "SELECT * FROM formacao WHERE idformacao LIKE '%" + search + "%'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(pesquisarQuery, db.getConnection());
                 DataTable table = new DataTable();
                 adapter.Fill(table);
