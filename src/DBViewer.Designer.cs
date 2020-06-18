@@ -39,7 +39,6 @@
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnminimize = new FontAwesome.Sharp.IconButton();
-            this.btnmaxime = new FontAwesome.Sharp.IconButton();
             this.btnshutdown = new FontAwesome.Sharp.IconButton();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
@@ -201,7 +200,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.btnminimize);
-            this.panel2.Controls.Add(this.btnmaxime);
             this.panel2.Controls.Add(this.btnshutdown);
             this.panel2.Controls.Add(this.lblTitleChildForm);
             this.panel2.Controls.Add(this.iconCurrentChildForm);
@@ -220,29 +218,13 @@
             this.btnminimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.btnminimize.IconColor = System.Drawing.Color.White;
             this.btnminimize.IconSize = 30;
-            this.btnminimize.Location = new System.Drawing.Point(865, 12);
+            this.btnminimize.Location = new System.Drawing.Point(896, 12);
             this.btnminimize.Name = "btnminimize";
             this.btnminimize.Rotation = 0D;
             this.btnminimize.Size = new System.Drawing.Size(25, 23);
             this.btnminimize.TabIndex = 12;
             this.btnminimize.UseVisualStyleBackColor = true;
             this.btnminimize.Click += new System.EventHandler(this.btnminimize_Click);
-            // 
-            // btnmaxime
-            // 
-            this.btnmaxime.FlatAppearance.BorderSize = 0;
-            this.btnmaxime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmaxime.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnmaxime.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.btnmaxime.IconColor = System.Drawing.Color.White;
-            this.btnmaxime.IconSize = 30;
-            this.btnmaxime.Location = new System.Drawing.Point(896, 12);
-            this.btnmaxime.Name = "btnmaxime";
-            this.btnmaxime.Rotation = 0D;
-            this.btnmaxime.Size = new System.Drawing.Size(25, 23);
-            this.btnmaxime.TabIndex = 11;
-            this.btnmaxime.UseVisualStyleBackColor = true;
-            this.btnmaxime.Click += new System.EventHandler(this.btnmaxime_Click);
             // 
             // btnshutdown
             // 
@@ -367,7 +349,6 @@
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
         private System.Windows.Forms.Label lblTitleChildForm;
         private FontAwesome.Sharp.IconButton btnshutdown;
-        private FontAwesome.Sharp.IconButton btnmaxime;
         private FontAwesome.Sharp.IconButton btnminimize;
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.Label date;

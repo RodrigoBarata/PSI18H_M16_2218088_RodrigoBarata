@@ -21,7 +21,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             InitializeComponent();
         }
 
-      
+      //Insere os Dados do Utlizador na Base de Dados
         private void btnregistar_Click(object sender, EventArgs e)
         {
             
@@ -98,7 +98,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
                 return false;
             }
         }
-
+        //Vê se temos algum campo vazio
         public Boolean checkTextBoxesValues()
         {
             if (txtNome.Text.Equals("") || txtUsername.Text.Equals("") || txtPassword.Text.Equals("") || txtpassworcheck.Text.Equals(""))
@@ -111,13 +111,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             }
         }
 
-      
+      //Sai da Aplicação
         private void iconButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-
+        //permite ao user mover o aplicativo para qualque lado da tela
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 

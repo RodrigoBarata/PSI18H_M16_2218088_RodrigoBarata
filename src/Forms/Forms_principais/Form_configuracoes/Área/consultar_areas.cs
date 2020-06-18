@@ -25,12 +25,13 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             
 
         }
+        //limpa os campos
         public void cleanTextBox()
         {
             txtid.Text = "";
             txtarea.Text = "";
         }
-       
+       //vê se os campos estao vazios
         public Boolean checkTextBoxesValues()
         {
             if (txtarea.Text.Equals("") )
@@ -42,6 +43,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return true;
             }
         }
+        //Prcura se já existe uma área
         public Boolean checkArea()
         {
             DB db = new DB();
@@ -69,6 +71,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return false;
             }
         }
+        //Se a tabela estiver vazia ele desativa a dataGridView
         public void check()
         {
  
@@ -95,7 +98,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         }
 
 
-
+        //Mostra os Dados Na DataGridView
         public void dataview()
         {
             string selectQuery = "SELECT * FROM area";
@@ -106,7 +109,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         }
 
 
-
+        //Passa os campos da tabela para os campos correspondentes
         public void dtareas_MouseClick(object sender, MouseEventArgs e)
         {
 
@@ -115,7 +118,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         }
 
         
-
+        //Insere os dados Na Base de dados
         private void btnnovo_Click(object sender, EventArgs e)
         {
             string insertQuery = "INSERT INTO area(nome_area) VALUES('" + txtarea.Text + "')";
@@ -161,7 +164,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
         {
             check();
         }
-
+        //Edita os Dados já presentes na tabela
         private void btneditar_Click(object sender, EventArgs e)
         {
             
@@ -209,7 +212,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
             
                 
         }
-
+        //Elimina os Dados Da Tabela
         private void btnremover_Click(object sender, EventArgs e)
         {
             if (checkTextBoxesValues())
@@ -251,6 +254,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 MessageBox.Show("Preencha os campos");
             }
         }
+        //Ve se existe a Area
         public Boolean checkIdArea()
         {
             DB db = new DB();
@@ -278,6 +282,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms.Forms_principais.Form_c
                 return false;
             }
         }
+        // permite ao utlizador procurar
         public void search(string search)
         {
             DB db = new DB();

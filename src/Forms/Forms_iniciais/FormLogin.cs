@@ -14,7 +14,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
         }
 
         
-
+        //Procura o User na Base de Dados
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
             DB db = new DB();
@@ -58,7 +58,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
            
 
         }
-
+        //permite ao user pegar no panel e transportar a aplicação para qualquer lugar do ecrã
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -71,12 +71,12 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //Sai da Aplicação
         private void iconButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
+        // Vai para a página de registo
         private void Registar_Click(object sender, EventArgs e)
         {
             this.Hide();
