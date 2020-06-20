@@ -40,6 +40,7 @@
             this.txtsubarea = new System.Windows.Forms.TextBox();
             this.btnremover = new System.Windows.Forms.Button();
             this.cbxareas = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtsubareas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,11 +171,22 @@
             this.cbxareas.TabIndex = 37;
             this.cbxareas.SelectedIndexChanged += new System.EventHandler(this.cbxareas_SelectedIndexChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(334, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 17);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Área";
+            // 
             // consultar_subarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cbxareas);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label3);
@@ -208,5 +220,6 @@
         private System.Windows.Forms.TextBox txtsubarea;
         private System.Windows.Forms.Button btnremover;
         private System.Windows.Forms.ComboBox cbxareas;
+        private System.Windows.Forms.Label label4;
     }
 }
