@@ -386,10 +386,10 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
             DTPinicio.Text = dt.CurrentRow.Cells[1].Value.ToString();
             DTPFim.Text = dt.CurrentRow.Cells[2].Value.ToString();
             cbxformador.Text = dt.CurrentRow.Cells[3].Value.ToString();
-            cbxcurso.Text = dt.CurrentRow.Cells[4].Value.ToString();
-            cbxsub.Text = dt.CurrentRow.Cells[5].Value.ToString();
-            cbxarea.Text = dt.CurrentRow.Cells[6].Value.ToString();
-            cbxcliente.Text = dt.CurrentRow.Cells[7].Value.ToString();
+            cbxcliente.Text = dt.CurrentRow.Cells[4].Value.ToString();
+            cbxcurso.Text = dt.CurrentRow.Cells[5].Value.ToString();
+            cbxsub.Text = dt.CurrentRow.Cells[6].Value.ToString();
+            cbxarea.Text = dt.CurrentRow.Cells[7].Value.ToString();
 
         }
 
