@@ -30,7 +30,7 @@ namespace PSI18H_M16_Projeto_2218088_RodrigoBarata.Forms
 
                 command.Parameters.Add("@nome", MySqlDbType.VarChar).Value = txtNome.Text;
                 command.Parameters.Add("@username", MySqlDbType.VarChar).Value = txtUsername.Text;
-                command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text.Trim();
+                command.Parameters.Add("@password", MySqlDbType.VarChar).Value = txtPassword.Text;
                 
 
                 db.openConnection();
